@@ -3,7 +3,7 @@ import USDTSvg from '../../assets/svg/pools/usdt.svg'
 import OKBSvg from '../../assets/svg/pools/okb.svg'
 import BTCKSvg from '../../assets/svg/pools/btck.svg'
 import ETHSvg from '../../assets/svg/pools/eth.svg'
-import IOSPoolsAbi from '../../constants/abis/IOSPools.json'
+import IOSPoolsAbi from '../../constants/abis/TotoroPools.json'
 import { IOS_ADDRESS, USDT_ADDRESS } from '../../constants'
 import { ChainId } from '@totoroswap/sdk'
 

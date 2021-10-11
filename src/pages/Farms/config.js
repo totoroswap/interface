@@ -9,7 +9,7 @@ import UsdtWoktSvg from '../../assets/svg/pools/usdt_wokt.svg'
 
 import BtckEthkIosSvg from '../../assets/svg/pools/btck_ethk.svg'
 import WokbOkbSvg from '../../assets/svg/pools/okb_okb.svg'
-import IOSPoolsAbi from '../../constants/abis/IOSPools.json'
+import IOSPoolsAbi from '../../constants/abis/TotoroPools.json'
 import { ChainId } from '@totoroswap/sdk'
 import {
   IOS_ADDRESS,
