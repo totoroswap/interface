@@ -31,6 +31,7 @@ import usePrevious from '../../hooks/usePrevious'
 import { useDarkModeManager } from '../../state/user/hooks'
 import BigNumber from 'bignumber.js'
 import { formatLastZero } from '../../utils/format'
+import { TOTORO_TOKEN_INFO } from '../../constants'
 
 const HeaderFrame = styled.div`
   position: fixed;
@@ -374,7 +375,6 @@ export default function Header() {
   const { account, chainId } = useActiveWeb3React()
   // const { t } = useTranslation()
   const userEthBalance = useContractBalances(account ? [account] : [])?.[account ?? '']
-  console.log('userEthBalance', userEthBalance)
   // const [isDark] = useDarkModeManager()
 
   const toggleClaimModal = useToggleSelfClaimModal()
@@ -511,7 +511,7 @@ export default function Header() {
             )}
             <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
               {account && userEthBalance ? (
-                <BalanceText>{prettyBalance(userEthBalance?.toSignificant(4))} IOS</BalanceText>
+                <BalanceText>{prettyBalance(userEthBalance?.toSignificant(4))} {TOTORO_TOKEN_INFO.symbol}</BalanceText>
               ) : null}
               <Web3Status />
             </AccountElement>

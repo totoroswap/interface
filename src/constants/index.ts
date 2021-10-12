@@ -15,6 +15,7 @@ type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
 }
 
+
 export const DAI = new Token(ChainId.BSC, '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3', 18, 'DAI', 'Dai')
 export const USDC = new Token(ChainId.BSC, '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d', 18, 'USDC', 'USD//C')
 export const USDT = new Token(ChainId.BSC, '0x55d398326f99059fF775485246999027B3197955', 18, 'USDT', 'Tether USD')
@@ -32,7 +33,8 @@ export const GOVERNANCE_ADDRESS = '0x5e4be8Bc9637f0EAA1A755019e06A68ce081D58F'
 export const TIMELOCK_ADDRESS = '0x73b50dA49C400e4081e92dCBCB397A01dF3497e4'
 
 const TOTORO_ADDRESS = '0xd94B8f494f61ca71280a2A70E4cf42F3Af331d2E'
-// 展示在UIN的Breakdown一个弹窗,投票授权弹窗，管理投票页面,交易成功右边提示框，pool展示流动性列表
+// A pop-up window is displayed in the breakdown of UIN, the voting authorization pop-up window, the management voting page,
+// the prompt box on the right of successful transaction, and the pool displays the liquidity list
 export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.MAINNET]: new Token(ChainId.MAINNET, TOTORO_ADDRESS, 18, 'TOTORO', 'TOTORO'),
   [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, TOTORO_ADDRESS, 18, 'TOTORO', 'TOTORO'),
@@ -41,7 +43,7 @@ export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.KOVAN]: new Token(ChainId.KOVAN, TOTORO_ADDRESS, 18, 'TOTORO', 'TOTORO'),
   [ChainId.BSC]: new Token(ChainId.BSC, TOTORO_ADDRESS, 18, 'TOTORO', 'TOTORO')
 }
-// 用在投票页面
+// in voting page
 export const COMMON_CONTRACT_NAMES: { [address: string]: string } = {
   [TOTORO_ADDRESS]: 'TOTORO',
   [GOVERNANCE_ADDRESS]: 'Governance',
@@ -49,19 +51,24 @@ export const COMMON_CONTRACT_NAMES: { [address: string]: string } = {
 }
 
 // TODO: specify merkle distributor for mainnet
-// useContract使用
+// in useContract
 export const MERKLE_DISTRIBUTOR_ADDRESS: { [chainId in ChainId]?: string } = {
   [ChainId.MAINNET]: '0x090D4613473dEE047c3f2706764f49E0821D256e'
 }
 
 const WETH_ONLY: ChainTokenList = {
+  [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
+  [ChainId.ROPSTEN]: [WETH[ChainId.ROPSTEN]],
+  [ChainId.RINKEBY]: [WETH[ChainId.RINKEBY]],
+  [ChainId.GÖRLI]: [WETH[ChainId.GÖRLI]],
+  [ChainId.KOVAN]: [WETH[ChainId.KOVAN]],
   [ChainId.BSC]: [WETH[ChainId.BSC]]
 }
 
-// 组合用于构造用交易的中介对
+// Composition is used to construct mediation pairs for transactions
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.BSC]: [...WETH_ONLY[ChainId.BSC], DAI, USDC, USDT, WBTC, ETH, USDK, OKB]
+  [ChainId.BSC]: [...WETH_ONLY[ChainId.BSC], DAI, USDC, USDT, WBTC, ETH]
 }
 
 export const ADDITIONAL_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: Token[] } } = {
@@ -84,13 +91,13 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.BSC]: [...WETH_ONLY[ChainId.BSC], DAI, USDC, USDT, WBTC, ETH, USDK, OKB]
+  [ChainId.BSC]: [...WETH_ONLY[ChainId.BSC], DAI, USDC, USDT, WBTC, ETH]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.BSC]: [...WETH_ONLY[ChainId.BSC], DAI, USDC, USDT, WBTC, ETH, USDK, OKB]
+  [ChainId.BSC]: [...WETH_ONLY[ChainId.BSC], DAI, USDC, USDT, WBTC, ETH]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
