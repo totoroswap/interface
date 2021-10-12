@@ -15,21 +15,12 @@ type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
 }
 
-// export const AMPL = new Token(ChainId.BSC, '0xD46bA6D942050d489DBd938a2C909A5d5039A161', 9, 'AMPL', 'Ampleforth')
-export const DAI = new Token(ChainId.BSC, '0x21cde7e32a6caf4742d00d44b07279e7596d26b9', 18, 'DAI', 'Dai Stablecoin')
-export const USDC = new Token(ChainId.BSC, '0xc946daf81b08146b1c7a8da2a851ddf2b3eaaf85', 18, 'USDC', 'USD//C')
-export const USDT = new Token(ChainId.BSC, '0x382bb369d343125bfb2117af9c149795c6c65c50', 18, 'USDT', 'Tether USD')
-export const WBTC = new Token(ChainId.BSC, '0x54e4622dc504176b3bb432dccaf504569699a7ff', 18, 'WBTC', 'Wrapped BTC')
-export const WLTC = new Token(ChainId.BSC, '0xfa520efc34c81bfc1e3dd48b7fe9ff326049f986', 18, 'WLTC', 'Wrapped LTC')
-
-export const OKB = new Token(ChainId.BSC, '0xdf54b6c6195ea4d948d03bfd818d365cf175cfc2', 18, 'OKB', 'OKB')
-export const ETH = new Token(ChainId.BSC, '0xef71ca2ee68f45b9ad6f72fbdb33d707b872315c', 18, 'WETH', 'Wrapped ETH')
-export const USDK = new Token(ChainId.BSC, '0xdcac52e001f5bd413aa6ea83956438f29098166b', 18, 'USDK', 'USDK')
-// export const FEI = new Token(ChainId.BSC, '0x956F47F50A910163D8BF957Cf5846D573E7f87CA', 18, 'FEI', 'Fei USD')
-// export const TRIBE = new Token(ChainId.BSC, '0xc7283b66Eb1EB5FB86327f08e1B5816b0720212B', 18, 'TRIBE', 'Tribe')
-// export const FRAX = new Token(ChainId.BSC, '0x853d955aCEf822Db058eb8505911ED77F175b99e', 18, 'FRAX', 'Frax')
-// export const FXS = new Token(ChainId.BSC, '0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0', 18, 'FXS', 'Frax Share')
-// export const renBTC = new Token(ChainId.BSC, '0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D', 8, 'renBTC', 'renBTC')
+export const DAI = new Token(ChainId.BSC, '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3', 18, 'DAI', 'Dai')
+export const USDC = new Token(ChainId.BSC, '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d', 18, 'USDC', 'USD//C')
+export const USDT = new Token(ChainId.BSC, '0x55d398326f99059fF775485246999027B3197955', 18, 'USDT', 'Tether USD')
+export const BUSD = new Token(ChainId.BSC, '0x55d398326f99059fF775485246999027B3197955', 18, 'BUSD', 'BUSD')
+export const WBTC = new Token(ChainId.BSC, '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c', 18, 'WBTC', 'Wrapped BTC')
+export const ETH = new Token(ChainId.BSC, '0x2170Ed0880ac9A755fd29B2688956BD959F933F8', 18, 'WETH', 'Wrapped ETH')
 
 // Block time here is slightly higher (~1s) than average in order to avoid ongoing proposals past the displayed time
 export const AVERAGE_BLOCK_TIME_IN_SECS = 13
@@ -40,19 +31,19 @@ export const GOVERNANCE_ADDRESS = '0x5e4be8Bc9637f0EAA1A755019e06A68ce081D58F'
 
 export const TIMELOCK_ADDRESS = '0x73b50dA49C400e4081e92dCBCB397A01dF3497e4'
 
-const UNI_ADDRESS = '0x59d226bb0a4d74274d4354ebb6a0e1a1aa5175b6'
+const TOTORO_ADDRESS = '0xd94B8f494f61ca71280a2A70E4cf42F3Af331d2E'
 // 展示在UIN的Breakdown一个弹窗,投票授权弹窗，管理投票页面,交易成功右边提示框，pool展示流动性列表
 export const UNI: { [chainId in ChainId]: Token } = {
-  [ChainId.MAINNET]: new Token(ChainId.MAINNET, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.KOVAN]: new Token(ChainId.KOVAN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.BSC]: new Token(ChainId.BSC, UNI_ADDRESS, 18, 'UNI', 'Uniswap')
+  [ChainId.MAINNET]: new Token(ChainId.MAINNET, TOTORO_ADDRESS, 18, 'TOTORO', 'TOTORO'),
+  [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, TOTORO_ADDRESS, 18, 'TOTORO', 'TOTORO'),
+  [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, TOTORO_ADDRESS, 18, 'TOTORO', 'TOTORO'),
+  [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, TOTORO_ADDRESS, 18, 'TOTORO', 'TOTORO'),
+  [ChainId.KOVAN]: new Token(ChainId.KOVAN, TOTORO_ADDRESS, 18, 'TOTORO', 'TOTORO'),
+  [ChainId.BSC]: new Token(ChainId.BSC, TOTORO_ADDRESS, 18, 'TOTORO', 'TOTORO')
 }
 // 用在投票页面
 export const COMMON_CONTRACT_NAMES: { [address: string]: string } = {
-  [UNI_ADDRESS]: 'UNI',
+  [TOTORO_ADDRESS]: 'TOTORO',
   [GOVERNANCE_ADDRESS]: 'Governance',
   [TIMELOCK_ADDRESS]: 'Timelock'
 }
@@ -64,11 +55,6 @@ export const MERKLE_DISTRIBUTOR_ADDRESS: { [chainId in ChainId]?: string } = {
 }
 
 const WETH_ONLY: ChainTokenList = {
-  [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
-  [ChainId.ROPSTEN]: [WETH[ChainId.ROPSTEN]],
-  [ChainId.RINKEBY]: [WETH[ChainId.RINKEBY]],
-  [ChainId.GÖRLI]: [WETH[ChainId.GÖRLI]],
-  [ChainId.KOVAN]: [WETH[ChainId.KOVAN]],
   [ChainId.BSC]: [WETH[ChainId.BSC]]
 }
 
@@ -80,8 +66,8 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
 
 export const ADDITIONAL_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: Token[] } } = {
   [ChainId.MAINNET]: {
-    '0xA948E86885e12Fb09AfEF8C52142EBDbDf73cD18': [new Token(ChainId.MAINNET, UNI_ADDRESS, 18, 'UNI', 'Uniswap')],
-    '0x561a4717537ff4AF5c687328c0f7E90a319705C0': [new Token(ChainId.MAINNET, UNI_ADDRESS, 18, 'UNI', 'Uniswap')]
+    '0xA948E86885e12Fb09AfEF8C52142EBDbDf73cD18': [new Token(ChainId.MAINNET, TOTORO_ADDRESS, 18, 'UNI', 'Uniswap')],
+    '0x561a4717537ff4AF5c687328c0f7E90a319705C0': [new Token(ChainId.MAINNET, TOTORO_ADDRESS, 18, 'UNI', 'Uniswap')]
   }
 }
 
@@ -215,15 +201,6 @@ export const BLOCKED_ADDRESSES: string[] = [
   '0xA7e5d5A720f06526557c513402f2e6B5fA20b008',
   '0x8576aCC5C05D6Ce88f4e49bf65BdF0C62F91353C'
 ]
-
-export const TOTORO_ADDRESS = '0xd94B8f494f61ca71280a2A70E4cf42F3Af331d2E'
-export const USDT_ADDRESS = '0x382bb369d343125bfb2117af9c149795c6c65c50'
-export const ETHK_ADDRESS = '0xEF71CA2EE68F45B9Ad6F72fbdb33d707b872315C'
-export const WOKT_ADDRESS = '0x8F8526dbfd6E38E3D8307702cA8469Bae6C56C15'
-export const BTCK_ADDRESS = '0x54e4622DC504176b3BB432dCCAf504569699a7fF'
-export const OKB_ADDRESS = '0xdF54B6c6195EA4d948D03bfD818D365cf175cFC2'
-export const LTCK_ADDRESS = '0xfA520efC34C81bfC1E3DD48b7fE9fF326049f986'
-export const DOTK_ADDRESS = '0xabc732f6f69a519F6d508434481376B6221eb7d5'
 
 export const TOTORO_TOKEN_INFO = {
   icon: IOSIcon,
