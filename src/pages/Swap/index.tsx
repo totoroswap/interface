@@ -353,10 +353,10 @@ export default function Swap({ history }: RouteComponentProps) {
 
   const swapIsUnsupported = useIsTransactionUnsupported(currencies?.INPUT, currencies?.OUTPUT)
 
-  const [tradeBonus, setTradeBonus] = useState('0')
+  const [tradeBonus, setTradeBonus] = useState('12.3')
 
   const getTradeBonus = (amountIn: string | number, routerAddress: Array<string>) => {
-    setTradeBonus('12.3')
+    // setTradeBonus('12.3')
     return
     const web3 = new Web3(new Web3.providers.HttpProvider(getRpcUrl(ChainId.BSC)))
     const address = '0x4AD7f7a124a78E3e0d0eF9764022B9353B011D75'
