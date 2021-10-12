@@ -94,9 +94,9 @@ export default function App() {
           <Web3ReactManager>
             <Switch>
               <Route exact strict path="/swap" component={Swap} />
-              <Route exact strict path="/farms" component={Farms} />
-              <Route exact strict path="/tradeBonus" component={TradeBonus} />
-              <Route exact strict path="/pools" component={Pools} />
+              {false && <Route exact strict path="/farms" component={Farms} />}
+              {false && <Route exact strict path="/tradeBonus" component={TradeBonus} />}
+              {false && <Route exact strict path="/pools" component={Pools} />}
               <Route exact strict path="/dividends" component={Dividends} />
               <Route exact strict path="/claim" component={OpenClaimAddressModalAndRedirectToSwap} />
               <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />

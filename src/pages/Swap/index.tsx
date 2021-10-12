@@ -54,6 +54,7 @@ import TotoroSwapFarmingRouterAbi from '../../constants/abis/TotoroSwapFarmingRo
 import { getRpcUrl } from '../../constants/web3'
 import { formatAmount, numToWei } from '../../utils/format'
 import Web3 from 'web3'
+import { TOTORO_TOKEN_INFO } from '../../constants'
 
 export const MarginT = styled.div`
   margin-top: 0.75rem;
@@ -355,6 +356,8 @@ export default function Swap({ history }: RouteComponentProps) {
   const [tradeBonus, setTradeBonus] = useState('0')
 
   const getTradeBonus = (amountIn: string | number, routerAddress: Array<string>) => {
+    setTradeBonus('12.3')
+    return
     const web3 = new Web3(new Web3.providers.HttpProvider(getRpcUrl(ChainId.BSC)))
     const address = '0x4AD7f7a124a78E3e0d0eF9764022B9353B011D75'
     // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
@@ -484,7 +487,7 @@ export default function Swap({ history }: RouteComponentProps) {
                         Trade Bonus
                       </Text>
                       <Text fontWeight={500} fontSize={14} color={theme.text2}>
-                        <TradeBonusAmount>{tradeBonus}</TradeBonusAmount> IOS(estimated)
+                        <TradeBonusAmount>{tradeBonus}</TradeBonusAmount> {TOTORO_TOKEN_INFO.symbol}(estimated)
                       </Text>
                     </RowBetween>
                   </TradeBonus>

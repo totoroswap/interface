@@ -409,7 +409,7 @@ export default function Header() {
         <HeaderRow>
           <Title>
             <UniIcon>
-              <img width={'107px'} src={isDark ? LogoWhite : Logo} alt="logo" />
+              <img width={'40px'} src={isDark ? LogoWhite : Logo} alt="logo" />
             </UniIcon>
             <UniIconSmall>
               <img width={'26px'} src={LogoSmall} alt="logo" />
@@ -438,22 +438,22 @@ export default function Header() {
                   {/*{t('pool')}*/}
                   Liquidity
                 </StyledNavLink>
-                <StyledNavLink id={`swap-nav-link`} to={'/farms'}>
-                  {/*{t('farms')}*/}
-                  Farms
-                </StyledNavLink>
-                <StyledNavLink id={`swap-nav-link`} to={'/tradeBonus'}>
-                  {/*{t('tradeBonus')}*/}
-                  Trade Bonus
-                </StyledNavLink>
-                <StyledNavLink id={`swap-nav-link`} to={'/pools'}>
-                  {/*{t('pools')}*/}
-                  Pools
-                </StyledNavLink>
-                <StyledNavLink id={`swap-nav-link`} to={'/dividends'}>
-                  {/*{t('dividends')}*/}
-                  Dividends
-                </StyledNavLink>
+                {/*<StyledNavLink id={`swap-nav-link`} to={'/farms'}>*/}
+                {/*  /!*{t('farms')}*!/*/}
+                {/*  Farms*/}
+                {/*</StyledNavLink>*/}
+                {/*<StyledNavLink id={`swap-nav-link`} to={'/tradeBonus'}>*/}
+                {/*  /!*{t('tradeBonus')}*!/*/}
+                {/*  Trade Bonus*/}
+                {/*</StyledNavLink>*/}
+                {/*<StyledNavLink id={`swap-nav-link`} to={'/pools'}>*/}
+                {/*  /!*{t('pools')}*!/*/}
+                {/*  Pools*/}
+                {/*</StyledNavLink>*/}
+                {/*<StyledNavLink id={`swap-nav-link`} to={'/dividends'}>*/}
+                {/*  /!*{t('dividends')}*!/*/}
+                {/*  Dividends*/}
+                {/*</StyledNavLink>*/}
 
                 {false && (
                   <>

@@ -2,7 +2,7 @@ import { Currency, ETHER, Token } from '@totoroswap/sdk'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 
-import OKTLogo from '../../assets/images/okt-logo.svg'
+import BNBLogo from '../../assets/images/bnb-logo.png'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
 import Logo from '../Logo'
@@ -49,7 +49,7 @@ export default function CurrencyLogo({
   }, [currency, uriLocations])
 
   if (currency === ETHER) {
-    return <StyledEthereumLogo src={OKTLogo} size={size} style={style} />
+    return <StyledEthereumLogo src={BNBLogo} size={size} style={style} />
   }
 
   return <StyledLogo size={size} srcs={srcs} alt={`${currency?.symbol ?? 'token'} logo`} style={style} />
