@@ -12,7 +12,7 @@ import { formatAmount } from '../../utils/format'
 
 export const getRpcUrl = chainId => {
   const RPC_URLS = {
-    [ChainId.OKT]: 'https://exchainrpc.okex.org'
+    [ChainId.BSC]: 'https://bsc-dataseed1.ninicoin.io/'
   }
   return RPC_URLS[chainId]
 }
@@ -26,7 +26,7 @@ export const getMultiCallProvider = (provider, chainId) => {
   return new Provider(provider, chainId)
 }
 
-export const getOnlyMultiCallProvider = (chainId = ChainId.OKT) =>
+export const getOnlyMultiCallProvider = (chainId = ChainId.BSC) =>
   getMultiCallProvider(new JsonRpcProvider(getRpcUrl(chainId), chainId), chainId)
 
 export const processResult = _data => {

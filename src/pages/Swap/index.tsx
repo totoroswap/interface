@@ -355,7 +355,7 @@ export default function Swap({ history }: RouteComponentProps) {
   const [tradeBonus, setTradeBonus] = useState('0')
 
   const getTradeBonus = (amountIn: string | number, routerAddress: Array<string>) => {
-    const web3 = new Web3(new Web3.providers.HttpProvider(getRpcUrl(ChainId.OKT)))
+    const web3 = new Web3(new Web3.providers.HttpProvider(getRpcUrl(ChainId.BSC)))
     const address = '0x4AD7f7a124a78E3e0d0eF9764022B9353B011D75'
     // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
     // @ts-ignore

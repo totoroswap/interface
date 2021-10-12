@@ -22,7 +22,7 @@ export const poolsConfig = [
     mlpDecimal: 18,
     rewards1Address: TOTORO_ADDRESS, // 单池奖励都是ios
     abi: IOSPoolsAbi,
-    networkId: ChainId.OKT,
+    networkId: ChainId.BSC,
     mineMountainAddress: '0xd8c33866645B1B4856d1A1A15123ecb138c7A5A7', // 矿山的地址
     settleToken: USDT_ADDRESS, // 转换价值的地址 现在都以USDT
     settleTokenDecimal: 18
@@ -41,7 +41,7 @@ export const poolsConfig = [
     mlpDecimal: 18,
     rewards1Address: TOTORO_ADDRESS, // 单池奖励都是ios
     abi: IOSPoolsAbi,
-    networkId: ChainId.OKT,
+    networkId: ChainId.BSC,
     mineMountainAddress: '0xd8c33866645B1B4856d1A1A15123ecb138c7A5A7', // 矿山的地址
     settleToken: USDT_ADDRESS, // 转换价值的地址 现在都以USDT
     settleTokenDecimal: 18
@@ -60,7 +60,7 @@ export const poolsConfig = [
     mlpDecimal: 18,
     rewards1Address: TOTORO_ADDRESS, // 单池奖励都是ios
     abi: IOSPoolsAbi,
-    networkId: ChainId.OKT,
+    networkId: ChainId.BSC,
     mineMountainAddress: '0xd8c33866645B1B4856d1A1A15123ecb138c7A5A7', // 矿山的地址
     settleToken: USDT_ADDRESS, // 转换价值的地址 现在都以USDT
     settleTokenDecimal: 18
@@ -79,7 +79,7 @@ export const poolsConfig = [
     mlpDecimal: 18,
     rewards1Address: TOTORO_ADDRESS, // 单池奖励都是ios
     abi: IOSPoolsAbi,
-    networkId: ChainId.OKT,
+    networkId: ChainId.BSC,
     mineMountainAddress: '0xd8c33866645B1B4856d1A1A15123ecb138c7A5A7', // 矿山的地址
     settleToken: USDT_ADDRESS, // 转换价值的地址 现在都以USDT
     settleTokenDecimal: 18
@@ -98,7 +98,7 @@ export const poolsConfig = [
     mlpDecimal: 18,
     rewards1Address: TOTORO_ADDRESS, // 单池奖励都是ios
     abi: IOSPoolsAbi,
-    networkId: ChainId.OKT,
+    networkId: ChainId.BSC,
     mineMountainAddress: '0xd8c33866645B1B4856d1A1A15123ecb138c7A5A7', // 矿山的地址
     settleToken: USDT_ADDRESS, // 转换价值的地址 现在都以USDT
     settleTokenDecimal: 18
@@ -117,7 +117,7 @@ export const poolsConfig = [
     mlpDecimal: 18,
     rewards1Address: TOTORO_ADDRESS, // 单池奖励都是ios
     abi: IOSPoolsAbi,
-    networkId: ChainId.OKT,
+    networkId: ChainId.BSC,
     mineMountainAddress: '0xd8c33866645B1B4856d1A1A15123ecb138c7A5A7', // 矿山的地址
     settleToken: USDT_ADDRESS, // 转换价值的地址 现在都以USDT
     settleTokenDecimal: 18

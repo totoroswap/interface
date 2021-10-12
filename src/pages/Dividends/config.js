@@ -20,7 +20,7 @@ export const poolsConfig = [
     MLP: TOTORO_ADDRESS, // 质押
     mlpDecimal: 18,
     rewards1Address: WOKT_ADDRESS, // 得到
-    networkId: ChainId.OKT,
+    networkId: ChainId.BSC,
     settleToken: USDT_ADDRESS, // 转换价值的地址 现在都以USDT
     settleTokenDecimal: 18,
     routerAddress: '0x4AD7f7a124a78E3e0d0eF9764022B9353B011D75' // router合约
@@ -39,7 +39,7 @@ export const poolsConfig = [
     MLP: TOTORO_ADDRESS, // 质押
     mlpDecimal: 18,
     rewards1Address: BTCK_ADDRESS, // 得到
-    networkId: ChainId.OKT,
+    networkId: ChainId.BSC,
     settleToken: USDT_ADDRESS, // 转换价值的地址 现在都以USDT
     settleTokenDecimal: 18,
     routerAddress: '0x4AD7f7a124a78E3e0d0eF9764022B9353B011D75' // router合约
@@ -58,7 +58,7 @@ export const poolsConfig = [
     MLP: TOTORO_ADDRESS, // 质押
     mlpDecimal: 18,
     rewards1Address: USDT_ADDRESS, // 得到
-    networkId: ChainId.OKT,
+    networkId: ChainId.BSC,
     settleToken: USDT_ADDRESS, // 转换价值的地址 现在都以USDT
     settleTokenDecimal: 18,
     routerAddress: '0x4AD7f7a124a78E3e0d0eF9764022B9353B011D75' // router合约

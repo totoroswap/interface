@@ -3,10 +3,10 @@ import { useCallback, useMemo } from 'react'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { ChainId } from '@totoroswap/sdk'
 export const injected = new InjectedConnector({
-  supportedChainIds: [ChainId.OKT]
+  supportedChainIds: [ChainId.BSC]
 })
 export const networkConf = {
-  [ChainId.OKT]: {
+  [ChainId.BSC]: {
     chainId: '0x42',
     chainName: 'OKExChain Mainnet',
     nativeCurrency: {

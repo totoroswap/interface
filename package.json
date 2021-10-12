@@ -30,7 +30,7 @@
     "@totoroswap/governance": "^1.0.2",
     "@totoroswap/liquidity-staker": "^1.0.3",
     "@totoroswap/merkle-distributor": "^1.0.2",
-    "@totoroswap/sdk": "^1.0.8",
+    "@totoroswap/sdk": "^1.0.9",
     "@totoroswap/token-list": "^1.0.3",
     "@totoroswap/core": "^1.0.3",
     "@totoroswap/periphery": "^1.0.2",

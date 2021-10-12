@@ -4,7 +4,7 @@ import IOSIcon from '../assets/images/ios_icon.svg'
 import TotoroAbi from './abis/totoro.json'
 import { injected, walletconnect, walletlink } from '../connectors'
 
-export const ROUTER_ADDRESS = '0x4AD7f7a124a78E3e0d0eF9764022B9353B011D75'
+export const ROUTER_ADDRESS = '0xc65eA978F62d0f9Ec6B57C6aC434b1FD114cd3f2'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
@@ -15,21 +15,21 @@ type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
 }
 
-// export const AMPL = new Token(ChainId.OKT, '0xD46bA6D942050d489DBd938a2C909A5d5039A161', 9, 'AMPL', 'Ampleforth')
-export const DAI = new Token(ChainId.OKT, '0x21cde7e32a6caf4742d00d44b07279e7596d26b9', 18, 'DAI', 'Dai Stablecoin')
-export const USDC = new Token(ChainId.OKT, '0xc946daf81b08146b1c7a8da2a851ddf2b3eaaf85', 18, 'USDC', 'USD//C')
-export const USDT = new Token(ChainId.OKT, '0x382bb369d343125bfb2117af9c149795c6c65c50', 18, 'USDT', 'Tether USD')
-export const WBTC = new Token(ChainId.OKT, '0x54e4622dc504176b3bb432dccaf504569699a7ff', 18, 'WBTC', 'Wrapped BTC')
-export const WLTC = new Token(ChainId.OKT, '0xfa520efc34c81bfc1e3dd48b7fe9ff326049f986', 18, 'WLTC', 'Wrapped LTC')
+// export const AMPL = new Token(ChainId.BSC, '0xD46bA6D942050d489DBd938a2C909A5d5039A161', 9, 'AMPL', 'Ampleforth')
+export const DAI = new Token(ChainId.BSC, '0x21cde7e32a6caf4742d00d44b07279e7596d26b9', 18, 'DAI', 'Dai Stablecoin')
+export const USDC = new Token(ChainId.BSC, '0xc946daf81b08146b1c7a8da2a851ddf2b3eaaf85', 18, 'USDC', 'USD//C')
+export const USDT = new Token(ChainId.BSC, '0x382bb369d343125bfb2117af9c149795c6c65c50', 18, 'USDT', 'Tether USD')
+export const WBTC = new Token(ChainId.BSC, '0x54e4622dc504176b3bb432dccaf504569699a7ff', 18, 'WBTC', 'Wrapped BTC')
+export const WLTC = new Token(ChainId.BSC, '0xfa520efc34c81bfc1e3dd48b7fe9ff326049f986', 18, 'WLTC', 'Wrapped LTC')
 
-export const OKB = new Token(ChainId.OKT, '0xdf54b6c6195ea4d948d03bfd818d365cf175cfc2', 18, 'OKB', 'OKB')
-export const ETH = new Token(ChainId.OKT, '0xef71ca2ee68f45b9ad6f72fbdb33d707b872315c', 18, 'WETH', 'Wrapped ETH')
-export const USDK = new Token(ChainId.OKT, '0xdcac52e001f5bd413aa6ea83956438f29098166b', 18, 'USDK', 'USDK')
-// export const FEI = new Token(ChainId.OKT, '0x956F47F50A910163D8BF957Cf5846D573E7f87CA', 18, 'FEI', 'Fei USD')
-// export const TRIBE = new Token(ChainId.OKT, '0xc7283b66Eb1EB5FB86327f08e1B5816b0720212B', 18, 'TRIBE', 'Tribe')
-// export const FRAX = new Token(ChainId.OKT, '0x853d955aCEf822Db058eb8505911ED77F175b99e', 18, 'FRAX', 'Frax')
-// export const FXS = new Token(ChainId.OKT, '0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0', 18, 'FXS', 'Frax Share')
-// export const renBTC = new Token(ChainId.OKT, '0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D', 8, 'renBTC', 'renBTC')
+export const OKB = new Token(ChainId.BSC, '0xdf54b6c6195ea4d948d03bfd818d365cf175cfc2', 18, 'OKB', 'OKB')
+export const ETH = new Token(ChainId.BSC, '0xef71ca2ee68f45b9ad6f72fbdb33d707b872315c', 18, 'WETH', 'Wrapped ETH')
+export const USDK = new Token(ChainId.BSC, '0xdcac52e001f5bd413aa6ea83956438f29098166b', 18, 'USDK', 'USDK')
+// export const FEI = new Token(ChainId.BSC, '0x956F47F50A910163D8BF957Cf5846D573E7f87CA', 18, 'FEI', 'Fei USD')
+// export const TRIBE = new Token(ChainId.BSC, '0xc7283b66Eb1EB5FB86327f08e1B5816b0720212B', 18, 'TRIBE', 'Tribe')
+// export const FRAX = new Token(ChainId.BSC, '0x853d955aCEf822Db058eb8505911ED77F175b99e', 18, 'FRAX', 'Frax')
+// export const FXS = new Token(ChainId.BSC, '0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0', 18, 'FXS', 'Frax Share')
+// export const renBTC = new Token(ChainId.BSC, '0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D', 8, 'renBTC', 'renBTC')
 
 // Block time here is slightly higher (~1s) than average in order to avoid ongoing proposals past the displayed time
 export const AVERAGE_BLOCK_TIME_IN_SECS = 13
@@ -48,7 +48,7 @@ export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.KOVAN]: new Token(ChainId.KOVAN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.OKT]: new Token(ChainId.OKT, UNI_ADDRESS, 18, 'UNI', 'Uniswap')
+  [ChainId.BSC]: new Token(ChainId.BSC, UNI_ADDRESS, 18, 'UNI', 'Uniswap')
 }
 // 用在投票页面
 export const COMMON_CONTRACT_NAMES: { [address: string]: string } = {
@@ -69,13 +69,13 @@ const WETH_ONLY: ChainTokenList = {
   [ChainId.RINKEBY]: [WETH[ChainId.RINKEBY]],
   [ChainId.GÖRLI]: [WETH[ChainId.GÖRLI]],
   [ChainId.KOVAN]: [WETH[ChainId.KOVAN]],
-  [ChainId.OKT]: [WETH[ChainId.OKT]]
+  [ChainId.BSC]: [WETH[ChainId.BSC]]
 }
 
 // 组合用于构造用交易的中介对
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.OKT]: [...WETH_ONLY[ChainId.OKT], DAI, USDC, USDT, WBTC, ETH, USDK, OKB]
+  [ChainId.BSC]: [...WETH_ONLY[ChainId.BSC], DAI, USDC, USDT, WBTC, ETH, USDK, OKB]
 }
 
 export const ADDITIONAL_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: Token[] } } = {
@@ -98,17 +98,17 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.OKT]: [...WETH_ONLY[ChainId.OKT], DAI, USDC, USDT, WBTC, ETH, USDK, OKB]
+  [ChainId.BSC]: [...WETH_ONLY[ChainId.BSC], DAI, USDC, USDT, WBTC, ETH, USDK, OKB]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.OKT]: [...WETH_ONLY[ChainId.OKT], DAI, USDC, USDT, WBTC, ETH, USDK, OKB]
+  [ChainId.BSC]: [...WETH_ONLY[ChainId.BSC], DAI, USDC, USDT, WBTC, ETH, USDK, OKB]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
-  [ChainId.OKT]: [
+  [ChainId.BSC]: [
     [
       new Token(ChainId.MAINNET, '0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643', 8, 'cDAI', 'Compound Dai'),
       new Token(ChainId.MAINNET, '0x39AA39c021dfbaE8faC545936693aC917d5E7563', 8, 'cUSDC', 'Compound USD Coin')

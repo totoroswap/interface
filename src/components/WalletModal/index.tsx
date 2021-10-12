@@ -158,7 +158,7 @@ export default function WalletModal({
 
   useEffect(() => {
     if (error instanceof UnsupportedChainIdError && walletModalOpen) {
-      changeNetwork(ChainId.OKT).then(() => {
+      changeNetwork(ChainId.BSC).then(() => {
         toggleWalletModal()
       })
     }

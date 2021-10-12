@@ -25,7 +25,7 @@ export const tradeBonusConfig = [
     mlpDecimal: 18,
     settleToken: USDT_ADDRESS, // 转换价值的地址 现在都以USDT
     settleTokenDecimal: 18,
-    networkId: ChainId.OKT,
+    networkId: ChainId.BSC,
     decimals: 18,
     rewards1Address: TOTORO_ADDRESS // 单池奖励都是ios
   },
@@ -43,7 +43,7 @@ export const tradeBonusConfig = [
     mlpDecimal: 18,
     settleToken: USDT_ADDRESS, // 转换价值的地址 现在都以USDT
     settleTokenDecimal: 18,
-    networkId: ChainId.OKT,
+    networkId: ChainId.BSC,
     decimals: 18,
     rewards1Address: TOTORO_ADDRESS // 单池奖励都是ios
   },
@@ -61,7 +61,7 @@ export const tradeBonusConfig = [
     mlpDecimal: 18,
     settleToken: USDT_ADDRESS, // 转换价值的地址 现在都以USDT
     settleTokenDecimal: 18,
-    networkId: ChainId.OKT,
+    networkId: ChainId.BSC,
     decimals: 18,
     rewards1Address: TOTORO_ADDRESS // 单池奖励都是ios
   }

@@ -51,7 +51,7 @@ export const useTokenPriceValue = poolData => {
     ]).then(data => {
       try {
         const [USDCWETHPair, DAIUSDCPair] = data
-        const route = new Route([USDCWETHPair, DAIUSDCPair], WETH[ChainId.OKT])
+        const route = new Route([USDCWETHPair, DAIUSDCPair], WETH[ChainId.BSC])
         const _price = route.midPrice.toSignificant(6)
         setPrice(_price)
       } catch {}
