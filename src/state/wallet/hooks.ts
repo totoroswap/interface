@@ -1,4 +1,4 @@
-import { IOS_TOKEN_INFO, UNI } from './../../constants/index'
+import { TOTORO_TOKEN_INFO, UNI } from './../../constants/index'
 import { Currency, CurrencyAmount, ETHER, JSBI, Token, TokenAmount } from '@totoroswap/sdk'
 import { useMemo } from 'react'
 import ERC20_INTERFACE from '../../constants/abis/erc20'
@@ -49,7 +49,7 @@ export function useETHBalances(
 export function useContractBalances(
   uncheckedAddresses?: (string | undefined)[]
 ): { [address: string]: CurrencyAmount | undefined } {
-  const multicallContract = useAssignMulticallContract(IOS_TOKEN_INFO.address)
+  const multicallContract = useAssignMulticallContract(TOTORO_TOKEN_INFO.address)
 
   const addresses: string[] = useMemo(
     () =>

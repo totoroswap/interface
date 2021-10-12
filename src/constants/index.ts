@@ -1,7 +1,7 @@
 import { ChainId, JSBI, Percent, Token, WETH } from '@totoroswap/sdk'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import IOSIcon from '../assets/images/ios_icon.svg'
-import IOSAbi from './abis/ios.json'
+import TotoroAbi from './abis/totoro.json'
 import { injected, walletconnect, walletlink } from '../connectors'
 
 export const ROUTER_ADDRESS = '0x4AD7f7a124a78E3e0d0eF9764022B9353B011D75'
@@ -216,7 +216,7 @@ export const BLOCKED_ADDRESSES: string[] = [
   '0x8576aCC5C05D6Ce88f4e49bf65BdF0C62F91353C'
 ]
 
-export const IOS_ADDRESS = '0x6299b03a3B121E450BB173dE69186d54981e6cef'
+export const TOTORO_ADDRESS = '0xd94B8f494f61ca71280a2A70E4cf42F3Af331d2E'
 export const USDT_ADDRESS = '0x382bb369d343125bfb2117af9c149795c6c65c50'
 export const ETHK_ADDRESS = '0xEF71CA2EE68F45B9Ad6F72fbdb33d707b872315C'
 export const WOKT_ADDRESS = '0x8F8526dbfd6E38E3D8307702cA8469Bae6C56C15'
@@ -225,10 +225,10 @@ export const OKB_ADDRESS = '0xdF54B6c6195EA4d948D03bfD818D365cf175cFC2'
 export const LTCK_ADDRESS = '0xfA520efC34C81bfC1E3DD48b7fE9fF326049f986'
 export const DOTK_ADDRESS = '0xabc732f6f69a519F6d508434481376B6221eb7d5'
 
-export const IOS_TOKEN_INFO = {
+export const TOTORO_TOKEN_INFO = {
   icon: IOSIcon,
-  address: IOS_ADDRESS,
-  symbol: 'IOS',
+  address: TOTORO_ADDRESS,
+  symbol: 'TOTORO',
   decimals: 18,
-  abi: IOSAbi
+  abi: TotoroAbi
 }

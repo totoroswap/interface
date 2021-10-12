@@ -7,7 +7,7 @@ import USDT_IOS_SVG from '../../assets/svg/pools/usdt_ios.svg'
 import USDT_BTCK_SVG from '../../assets/svg/pools/usdt_btck.svg'
 import BTCK_ETHK_SVG from '../../assets/svg/pools/btck_ethk.svg'
 import TotoroSwapFarmingRouter from '../../constants/abis/TotoroSwapFarmingRouter.json'
-import { USDT_ADDRESS, IOS_ADDRESS, OKB_ADDRESS, BTCK_ADDRESS, ETHK_ADDRESS } from '../../constants'
+import { USDT_ADDRESS, TOTORO_ADDRESS, OKB_ADDRESS, BTCK_ADDRESS, ETHK_ADDRESS } from '../../constants'
 import { ChainId } from '@totoroswap/sdk'
 
 export const tradeBonusConfig = [
@@ -27,7 +27,7 @@ export const tradeBonusConfig = [
     settleTokenDecimal: 18,
     networkId: ChainId.OKT,
     decimals: 18,
-    rewards1Address: IOS_ADDRESS // 单池奖励都是ios
+    rewards1Address: TOTORO_ADDRESS // 单池奖励都是ios
   },
   {
     title: 'OKT Pairs',
@@ -45,7 +45,7 @@ export const tradeBonusConfig = [
     settleTokenDecimal: 18,
     networkId: ChainId.OKT,
     decimals: 18,
-    rewards1Address: IOS_ADDRESS // 单池奖励都是ios
+    rewards1Address: TOTORO_ADDRESS // 单池奖励都是ios
   },
   {
     title: 'BTCK Pairs',
@@ -63,7 +63,7 @@ export const tradeBonusConfig = [
     settleTokenDecimal: 18,
     networkId: ChainId.OKT,
     decimals: 18,
-    rewards1Address: IOS_ADDRESS // 单池奖励都是ios
+    rewards1Address: TOTORO_ADDRESS // 单池奖励都是ios
   }
 ]
 
@@ -79,13 +79,13 @@ export const recommendedPairs = [
     title: 'OKB/IOS',
     icon: OKB_IOS_SVG,
     inputCurrency: OKB_ADDRESS,
-    outputCurrency: IOS_ADDRESS
+    outputCurrency: TOTORO_ADDRESS
   },
   {
     title: 'USDT/IOS',
     icon: USDT_IOS_SVG,
     inputCurrency: USDT_ADDRESS,
-    outputCurrency: IOS_ADDRESS
+    outputCurrency: TOTORO_ADDRESS
   },
   {
     title: 'USDT/BTCK',

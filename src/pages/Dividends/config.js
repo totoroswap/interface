@@ -1,5 +1,5 @@
 import OKTSvg from '../../assets/svg/pools/okt_d.svg'
-import { BTCK_ADDRESS, IOS_ADDRESS, USDT_ADDRESS, WOKT_ADDRESS } from '../../constants'
+import { BTCK_ADDRESS, TOTORO_ADDRESS, USDT_ADDRESS, WOKT_ADDRESS } from '../../constants'
 import USDTSvg from '../../assets/svg/pools/usdt_d.svg'
 import BTCSvg from '../../assets/svg/pools/btc_d.svg'
 import StakingPool from '../../constants/abis/StakingPool.json'
@@ -17,7 +17,7 @@ export const poolsConfig = [
     },
     address: '0x4da241FA73e8F009a443cBFE27A3901e432616Ea',
     abi: StakingPool,
-    MLP: IOS_ADDRESS, // 质押
+    MLP: TOTORO_ADDRESS, // 质押
     mlpDecimal: 18,
     rewards1Address: WOKT_ADDRESS, // 得到
     networkId: ChainId.OKT,
@@ -36,7 +36,7 @@ export const poolsConfig = [
     },
     address: '0x5e84b777f7b00139fd4bde0d76f20fcbd51d3a72',
     abi: StakingPool,
-    MLP: IOS_ADDRESS, // 质押
+    MLP: TOTORO_ADDRESS, // 质押
     mlpDecimal: 18,
     rewards1Address: BTCK_ADDRESS, // 得到
     networkId: ChainId.OKT,
@@ -55,7 +55,7 @@ export const poolsConfig = [
     },
     address: '0x096fb80c7654712738caaca2b332a0246247e78d',
     abi: StakingPool,
-    MLP: IOS_ADDRESS, // 质押
+    MLP: TOTORO_ADDRESS, // 质押
     mlpDecimal: 18,
     rewards1Address: USDT_ADDRESS, // 得到
     networkId: ChainId.OKT,
