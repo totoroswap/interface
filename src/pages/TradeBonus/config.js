@@ -1,3 +1,3 @@
 export const tradeBonusConfig = []
-// z-index WOKT BTCK USDT
+// z-index
 export const recommendedPairs = []

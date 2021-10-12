@@ -130,11 +130,11 @@ export default function Dividends() {
   return (
     <PoolsPage>
       <PoolsTitle>
-        Stake Your IOS to earn platform dividends.You can choose to get USDT, OKT or BTC.
+        Stake Your IOS to earn platform dividends.You can choose to get USDT, BNB or BTC.
         <TipView
           text="The transaction fee of the swaps on the TotoroSwap platform is 0.3%, and 100% transaction fee will be put into
             the dividend pools to reward the users staking IOS. Staking rewards are distributed in three forms by USDT
-            pool, OKT pool and BTC pool. Users can choose to stake their IOS to three different pools to harvest
+            pool, BNB pool and BTC pool. Users can choose to stake their IOS to three different pools to harvest
             rewards. The smart contract will automatically send 10% of the funds in the staking mining pool to users at
             correspondent ratio."
         />

@@ -409,10 +409,12 @@ export default function Header() {
         <HeaderRow>
           <Title>
             <UniIcon>
-              <img width={'40px'} src={isDark ? LogoWhite : Logo} alt="logo" />
+              {false && <img width={'40px'} src={isDark ? LogoWhite : Logo} alt="logo" />}
+              <strong>TOTOROSWAP</strong>
             </UniIcon>
             <UniIconSmall>
-              <img width={'26px'} src={LogoSmall} alt="logo" />
+              {false && <img width={'26px'} src={LogoSmall} alt="logo" />}
+              <strong style={{fontSize: '12px'}}>TOTOROSWAP</strong>
             </UniIconSmall>
           </Title>
         </HeaderRow>

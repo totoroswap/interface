@@ -94,7 +94,7 @@ export function CurrencySearch({
 
   const showETH: boolean = useMemo(() => {
     const s = debouncedQuery.toLowerCase().trim()
-    return s === '' || s === 'o' || s === 'ok' || s === 'okt'
+    return s === '' || s === 'b' || s === 'bn' || s === 'bnb'
   }, [debouncedQuery])
 
   const tokenComparator = useTokenComparator(invertSearchOrder)
@@ -133,9 +133,9 @@ export function CurrencySearch({
 
   const handleEnter = useCallback(
     (e: KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === 'OKT') {
+      if (e.key === 'BNB') {
         const s = debouncedQuery.toLowerCase().trim()
-        if (s === 'okt') {
+        if (s === 'bnb') {
           handleCurrencySelect(ETHER)
         } else if (filteredSortedTokens.length > 0) {
           if (

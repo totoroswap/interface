@@ -191,8 +191,8 @@ export default function Dividends() {
   return (
     <PoolsPage>
       <PoolsTitle>
-        Trade with USDT, OKT, or BTCK to earn IOS
-        <TipView text="In order to encourage users to trade, TotoroSwap sets up transaction mining rewards for trading pairs containing USDT, OKT and BTCK. All trading pairs that include these three assets in the user's transaction can receive transaction mining rewards. Transaction mining rewards are issued in the form of platform token IOS, which is issued according to the proportion of user transaction volume to the total transaction volume of the platform. " />
+        Trade with USDT, BNB, or BTCK to earn TOTOTOS
+        <TipView text="In order to encourage users to trade, TotoroSwap sets up transaction mining rewards for trading pairs containing USDT, BNB and BTCK. All trading pairs that include these three assets in the user's transaction can receive transaction mining rewards. Transaction mining rewards are issued in the form of platform token IOS, which is issued according to the proportion of user transaction volume to the total transaction volume of the platform. " />
       </PoolsTitle>
       <PoolsBanner>
         <PoolsBannerItem>
