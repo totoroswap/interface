@@ -22,7 +22,7 @@ export function getEtherscanLink(
   data: string,
   type: 'transaction' | 'token' | 'address' | 'block'
 ): string {
-  const prefix = `https://www.oklink.com/okexchain`
+  const prefix = `https://bscscan.com`
 
   switch (type) {
     case 'transaction': {

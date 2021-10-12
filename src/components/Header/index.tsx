@@ -31,6 +31,7 @@ import usePrevious from '../../hooks/usePrevious'
 import { useDarkModeManager } from '../../state/user/hooks'
 import BigNumber from 'bignumber.js'
 import { formatLastZero } from '../../utils/format'
+import { TOTORO_TOKEN_INFO } from '../../constants'
 
 const HeaderFrame = styled.div`
   position: fixed;
@@ -374,7 +375,6 @@ export default function Header() {
   const { account, chainId } = useActiveWeb3React()
   // const { t } = useTranslation()
   const userEthBalance = useContractBalances(account ? [account] : [])?.[account ?? '']
-  console.log('userEthBalance', userEthBalance)
   // const [isDark] = useDarkModeManager()
 
   const toggleClaimModal = useToggleSelfClaimModal()
@@ -409,7 +409,7 @@ export default function Header() {
         <HeaderRow>
           <Title>
             <UniIcon>
-              <img width={'107px'} src={isDark ? LogoWhite : Logo} alt="logo" />
+              <img width={'40px'} src={isDark ? LogoWhite : Logo} alt="logo" />
             </UniIcon>
             <UniIconSmall>
               <img width={'26px'} src={LogoSmall} alt="logo" />
@@ -438,22 +438,22 @@ export default function Header() {
                   {/*{t('pool')}*/}
                   Liquidity
                 </StyledNavLink>
-                <StyledNavLink id={`swap-nav-link`} to={'/farms'}>
-                  {/*{t('farms')}*/}
-                  Farms
-                </StyledNavLink>
-                <StyledNavLink id={`swap-nav-link`} to={'/tradeBonus'}>
-                  {/*{t('tradeBonus')}*/}
-                  Trade Bonus
-                </StyledNavLink>
-                <StyledNavLink id={`swap-nav-link`} to={'/pools'}>
-                  {/*{t('pools')}*/}
-                  Pools
-                </StyledNavLink>
-                <StyledNavLink id={`swap-nav-link`} to={'/dividends'}>
-                  {/*{t('dividends')}*/}
-                  Dividends
-                </StyledNavLink>
+                {/*<StyledNavLink id={`swap-nav-link`} to={'/farms'}>*/}
+                {/*  /!*{t('farms')}*!/*/}
+                {/*  Farms*/}
+                {/*</StyledNavLink>*/}
+                {/*<StyledNavLink id={`swap-nav-link`} to={'/tradeBonus'}>*/}
+                {/*  /!*{t('tradeBonus')}*!/*/}
+                {/*  Trade Bonus*/}
+                {/*</StyledNavLink>*/}
+                {/*<StyledNavLink id={`swap-nav-link`} to={'/pools'}>*/}
+                {/*  /!*{t('pools')}*!/*/}
+                {/*  Pools*/}
+                {/*</StyledNavLink>*/}
+                {/*<StyledNavLink id={`swap-nav-link`} to={'/dividends'}>*/}
+                {/*  /!*{t('dividends')}*!/*/}
+                {/*  Dividends*/}
+                {/*</StyledNavLink>*/}
 
                 {false && (
                   <>
@@ -511,7 +511,7 @@ export default function Header() {
             )}
             <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
               {account && userEthBalance ? (
-                <BalanceText>{prettyBalance(userEthBalance?.toSignificant(4))} IOS</BalanceText>
+                <BalanceText>{prettyBalance(userEthBalance?.toSignificant(4))} {TOTORO_TOKEN_INFO.symbol}</BalanceText>
               ) : null}
               <Web3Status />
             </AccountElement>

@@ -213,22 +213,22 @@ export default function Menu() {
           {/*{t('pool')}*/}
           Liquidity
         </StyledNavLink>
-        <StyledNavLink id={`swap-nav-link`} to={'/farms'}>
-          {/*{t('farms')}*/}
-          Farms
-        </StyledNavLink>
-        <StyledNavLink id={`swap-nav-link`} to={'/tradeBonus'}>
-          {/*{t('tradeBonus')}*/}
-          Trade Bonus
-        </StyledNavLink>
-        <StyledNavLink id={`swap-nav-link`} to={'/pools'}>
-          {/*{t('pools')}*/}
-          Pools
-        </StyledNavLink>
-        <StyledNavLink id={`swap-nav-link`} to={'/dividends'}>
-          {/*{t('dividends')}*/}
-          Dividends
-        </StyledNavLink>
+        {/*<StyledNavLink id={`swap-nav-link`} to={'/farms'}>*/}
+        {/*  /!*{t('farms')}*!/*/}
+        {/*  Farms*/}
+        {/*</StyledNavLink>*/}
+        {/*<StyledNavLink id={`swap-nav-link`} to={'/tradeBonus'}>*/}
+        {/*  /!*{t('tradeBonus')}*!/*/}
+        {/*  Trade Bonus*/}
+        {/*</StyledNavLink>*/}
+        {/*<StyledNavLink id={`swap-nav-link`} to={'/pools'}>*/}
+        {/*  /!*{t('pools')}*!/*/}
+        {/*  Pools*/}
+        {/*</StyledNavLink>*/}
+        {/*<StyledNavLink id={`swap-nav-link`} to={'/dividends'}>*/}
+        {/*  /!*{t('dividends')}*!/*/}
+        {/*  Dividends*/}
+        {/*</StyledNavLink>*/}
       </Drawer>
     </>
   )
