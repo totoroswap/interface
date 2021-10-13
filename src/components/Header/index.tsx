@@ -10,7 +10,7 @@ import Logo from '../../assets/images/logo.svg'
 import LogoWhite from '../../assets/images/logo_white.svg'
 import LogoSmall from '../../assets/images/logo_small.svg'
 import { useActiveWeb3React } from '../../hooks'
-import { useContractBalances, useAggregateUniBalance } from '../../state/wallet/hooks'
+import { useContractBalances } from '../../state/wallet/hooks'
 import { CardNoise } from '../earn/styled'
 import { CountUp } from 'use-count-up'
 import { TYPE, ExternalLink } from '../../theme'
@@ -22,7 +22,6 @@ import Row, { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
 import ClaimModal from '../claim/ClaimModal'
 import { useToggleSelfClaimModal, useShowClaimPopup } from '../../state/application/hooks'
-import { useUserHasAvailableClaim } from '../../state/claim/hooks'
 import { useUserHasSubmittedClaim } from '../../state/transactions/hooks'
 import { Dots } from '../swap/styleds'
 import Modal from '../Modal'
@@ -379,16 +378,17 @@ export default function Header() {
 
   const toggleClaimModal = useToggleSelfClaimModal()
 
-  const availableClaim: boolean = useUserHasAvailableClaim(account)
+  // TODO D
+  const availableClaim = false
 
   const { claimTxn } = useUserHasSubmittedClaim(account ?? undefined)
 
-  const aggregateBalance: TokenAmount | undefined = useAggregateUniBalance()
+  const aggregateBalance: TokenAmount | undefined = undefined
 
   const [showUniBalanceModal, setShowUniBalanceModal] = useState(false)
   const showClaimPopup = useShowClaimPopup()
 
-  const countUpValue = aggregateBalance?.toFixed(0) ?? '0'
+  const countUpValue = '0'
   const countUpValuePrevious = usePrevious(countUpValue) ?? '0'
 
   const [isDark] = useDarkModeManager()
@@ -414,7 +414,7 @@ export default function Header() {
             </UniIcon>
             <UniIconSmall>
               {false && <img width={'26px'} src={LogoSmall} alt="logo" />}
-              <strong style={{fontSize: '12px'}}>TOTOROSWAP</strong>
+              <strong style={{ fontSize: '12px' }}>TOTOROSWAP</strong>
             </UniIconSmall>
           </Title>
         </HeaderRow>
@@ -513,7 +513,9 @@ export default function Header() {
             )}
             <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
               {account && userEthBalance ? (
-                <BalanceText>{prettyBalance(userEthBalance?.toSignificant(4))} {TOTORO_TOKEN_INFO.symbol}</BalanceText>
+                <BalanceText>
+                  {prettyBalance(userEthBalance?.toSignificant(4))} {TOTORO_TOKEN_INFO.symbol}
+                </BalanceText>
               ) : null}
               <Web3Status />
             </AccountElement>
