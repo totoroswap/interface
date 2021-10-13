@@ -29,8 +29,6 @@ export const AVERAGE_BLOCK_TIME_IN_SECS = 13
 export const PROPOSAL_LENGTH_IN_BLOCKS = 40_320
 export const PROPOSAL_LENGTH_IN_SECS = AVERAGE_BLOCK_TIME_IN_SECS * PROPOSAL_LENGTH_IN_BLOCKS
 
-export const GOVERNANCE_ADDRESS = '0x5e4be8Bc9637f0EAA1A755019e06A68ce081D58F'
-
 export const TIMELOCK_ADDRESS = '0x73b50dA49C400e4081e92dCBCB397A01dF3497e4'
 
 const TOTORO_ADDRESS = '0xd94B8f494f61ca71280a2A70E4cf42F3Af331d2E'
@@ -43,12 +41,6 @@ export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, TOTORO_ADDRESS, 18, 'TOTORO', 'TOTORO'),
   [ChainId.KOVAN]: new Token(ChainId.KOVAN, TOTORO_ADDRESS, 18, 'TOTORO', 'TOTORO'),
   [ChainId.BSC]: new Token(ChainId.BSC, TOTORO_ADDRESS, 18, 'TOTORO', 'TOTORO')
-}
-// in voting page
-export const COMMON_CONTRACT_NAMES: { [address: string]: string } = {
-  [TOTORO_ADDRESS]: 'TOTORO',
-  [GOVERNANCE_ADDRESS]: 'Governance',
-  [TIMELOCK_ADDRESS]: 'Timelock'
 }
 
 const WETH_ONLY: ChainTokenList = {

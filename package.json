@@ -27,7 +27,6 @@
     "@types/wcag-contrast": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
     "@typescript-eslint/parser": "^2.31.0",
-    "@totoroswap/governance": "^1.0.2",
     "@totoroswap/liquidity-staker": "^1.0.3",
     "@totoroswap/sdk": "^1.0.9",
     "@totoroswap/token-list": "^1.0.3",
