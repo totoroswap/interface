@@ -212,22 +212,6 @@ export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
   ])
 }
 
-export function useTotalUniEarned(): TokenAmount | undefined {
-  const { chainId } = useActiveWeb3React()
-  const uni = chainId ? UNI[chainId] : undefined
-  const stakingInfos = useStakingInfo()
-
-  return useMemo(() => {
-    if (!uni) return undefined
-    return (
-      stakingInfos?.reduce(
-        (accumulator, stakingInfo) => accumulator.add(stakingInfo.earnedAmount),
-        new TokenAmount(uni, '0')
-      ) ?? new TokenAmount(uni, '0')
-    )
-  }, [stakingInfos, uni])
-}
-
 // based on typed value
 export function useDerivedStakeInfo(
   typedValue: string,
