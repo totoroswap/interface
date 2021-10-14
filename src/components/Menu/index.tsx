@@ -61,7 +61,7 @@ const MenuFlyout = styled.span`
   width: 182px;
   padding: 22px;
   background-color: ${({ theme }) => theme.bg8};
-  box-shadow: 0px 10px 20px ${({ theme }) => theme.shaw1};
+  box-shadow: 0px 2px 5px ${({ theme }) => theme.shaw1};
   border-radius: 12px;
   display: flex;
   flex-direction: column;
