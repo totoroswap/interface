@@ -1,6 +1,6 @@
 import { TokenAmount, Pair, Currency } from '@totoroswap/sdk'
 import { useMemo } from 'react'
-import { abi as IUniswapV2PairABI } from '@totoroswap/core/build/IUniswapV2Pair.json'
+import { abi as IUniswapV2PairABI } from '../constants/abis/IUniswapV2Pair.json'
 import { Interface } from '@ethersproject/abi'
 import { useActiveWeb3React } from '../hooks'
 
