@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import { SwapPoolTabs } from '../../components/NavigationTabs'
 
 import FullPositionCard from '../../components/PositionCard'
-import { useUserHasLiquidityInAllTokens } from '../../data/V1'
 import { useTokenBalancesWithLoadingIndicator } from '../../state/wallet/hooks'
 import { ExternalLink, TYPE, HideSmall } from '../../theme'
 import { Text } from 'rebass'
@@ -64,6 +63,7 @@ const ResponsiveButtonPrimary = styled(ButtonPrimary)`
 
 const ResponsiveButtonSecondary = styled(ButtonSecondary)`
   width: fit-content;
+  border-radius: 20px !important;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     width: 48%;
   `};
@@ -111,8 +111,6 @@ export default function Pool() {
     fetchingV2PairBalances || v2Pairs?.length < liquidityTokensWithBalances.length || v2Pairs?.some(V2Pair => !V2Pair)
 
   const allV2PairsWithLiquidity = v2Pairs.map(([, pair]) => pair).filter((v2Pair): v2Pair is Pair => Boolean(v2Pair))
-
-  const hasV1Liquidity = useUserHasLiquidityInAllTokens()
 
   // show liquidity even if its deposited in rewards contract
   const stakingInfo = useStakingInfo()
@@ -166,16 +164,14 @@ export default function Pool() {
                 <ResponsiveButtonPrimary
                   as={Link}
                   padding="6px 8px"
-                  borderRadius="12px"
-                  to={hasV1Liquidity ? '/migrate/v1' : '/find'}
+                  to="/find"
                 >
-                  {hasV1Liquidity ? 'Migrate now.' : 'Import Pool'}
+                  Import Pool
                 </ResponsiveButtonPrimary>
                 <ResponsiveButtonPrimary
                   id="join-pool-button"
                   as={Link}
                   padding="6px 8px"
-                  borderRadius="12px"
                   to="/add/BNB"
                 >
                   <Text fontWeight={500} fontSize={16}>
