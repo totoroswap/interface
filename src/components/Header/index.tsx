@@ -17,7 +17,6 @@ import Menu from '../Menu'
 
 import Row, { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
-import ClaimModal from '../claim/ClaimModal'
 import Modal from '../Modal'
 import UniBalanceContent from './UniBalanceContent'
 import { useDarkModeManager } from '../../state/user/hooks'
@@ -26,9 +25,7 @@ import { formatLastZero } from '../../utils/format'
 import { TOTORO_TOKEN_INFO } from '../../constants'
 
 const HeaderFrame = styled.div`
-  position: fixed;
-  left: 0;
-  top: 0;
+  position: relative;
   display: grid;
   grid-template-columns: 120px 1fr 120px;
   align-items: center;
@@ -50,14 +47,6 @@ const HeaderFrame = styled.div`
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
   grid-template-columns: 30px 1fr;
         padding: 7px  16px;
-  `}
-`
-const HeaderFrameBlock = styled.div`
-  position: relative;
-  background: transparent;
-  height: 80px;
-  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-        height: 30px
   `}
 `
 const HeaderControls = styled.div`
@@ -357,9 +346,7 @@ export default function Header() {
 
   return (
     <>
-      <HeaderFrameBlock></HeaderFrameBlock>
       <HeaderFrame>
-        <ClaimModal />
         <Modal isOpen={showUniBalanceModal} onDismiss={() => setShowUniBalanceModal(false)}>
           <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
         </Modal>
