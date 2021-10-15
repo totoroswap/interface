@@ -1,7 +1,7 @@
 import { Contract } from '@ethersproject/contracts'
-import { abi as STAKING_REWARDS_ABI } from '@totoroswap/liquidity-staker/build/StakingRewards.json'
+import { abi as STAKING_REWARDS_ABI } from '../constants/abis/StakingRewards.json'
 import { ChainId, WETH } from '@totoroswap/sdk'
-import { abi as IUniswapV2PairABI } from '@totoroswap/core/build/IUniswapV2Pair.json'
+import { abi as IUniswapV2PairABI } from '../constants/abis/IUniswapV2Pair.json'
 import { useMemo } from 'react'
 import {
   ARGENT_WALLET_DETECTOR_ABI,
