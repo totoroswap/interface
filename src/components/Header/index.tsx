@@ -17,7 +17,6 @@ import Menu from '../Menu'
 
 import Row, { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
-import ClaimModal from '../claim/ClaimModal'
 import Modal from '../Modal'
 import UniBalanceContent from './UniBalanceContent'
 import { useDarkModeManager } from '../../state/user/hooks'
@@ -359,7 +358,6 @@ export default function Header() {
     <>
       <HeaderFrameBlock></HeaderFrameBlock>
       <HeaderFrame>
-        <ClaimModal />
         <Modal isOpen={showUniBalanceModal} onDismiss={() => setShowUniBalanceModal(false)}>
           <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
         </Modal>
