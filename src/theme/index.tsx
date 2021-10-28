@@ -41,11 +41,11 @@ export function colors(darkMode: boolean): Colors {
     black,
 
     // text
-    text1: darkMode ? '#FFFFFF' : '#000000',
-    text2: darkMode ? '#C3C5CB' : '#565A69',
-    text3: darkMode ? '#6C7284' : '#888D9B',
-    text4: darkMode ? '#565A69' : '#C3C5CB',
-    text5: darkMode ? '#2C2F36' : '#EDEEF2',
+    text1: darkMode ? '#FFFFFF' : '#000000', //
+    text2: darkMode ? '#FFF4DF' : '#FFF4DF', //
+    text3: darkMode ? '#135658' : '#135658', //
+    text4: darkMode ? '#4B9395' : '#4B9395', //
+    text5: darkMode ? '#3F4E50' : '#3F4E50',
 
     // backgrounds / greys
     bg1: darkMode ? '#212429' : '#FFFFFF',
@@ -53,13 +53,14 @@ export function colors(darkMode: boolean): Colors {
     bg3: darkMode ? '#40444F' : '#EDEEF2',
     bg4: darkMode ? '#565A69' : '#CED0D9',
     bg5: darkMode ? '#6C7284' : '#888D9B',
+    bg6: darkMode ? '#f2f8f0' : '#f2f8f0', //
 
     //specialty colors
     modalBG: darkMode ? 'rgba(0,0,0,.425)' : 'rgba(0,0,0,0.3)',
     advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
 
     //primary colors
-    primary1: darkMode ? '#2172E5' : '#3285FF',
+    primary1: darkMode ? '#135658' : '#135658', //
     primary2: darkMode ? '#3680E7' : '#495AFF',
     primary3: darkMode ? '#4D8FEA' : '#495AFF',
     primary4: darkMode ? '#2172E5' : '#3285FF',
@@ -107,6 +108,7 @@ export function colors(darkMode: boolean): Colors {
     shaw1: darkMode ? 'rgba(255, 255, 255, 0.12)' : 'rgba(30, 68, 89, 0.12)',
     disabled: darkMode ? '#6c6c6c' : '#9A9CA4',
     disabled2: darkMode ? 'rgba(86, 90, 105, 0.6)' : 'rgba(86, 90, 105, 0.6)',
+    disabled3: darkMode ? '#A1BCBD' : '#A1BCBD', //
     mask1: darkMode ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.6)',
     mask2: darkMode ? 'rgba(0,0,0,0.9)' : 'rgba(255,255,255,0.9)'
   }
@@ -243,7 +245,7 @@ export const FixedGlobalStyle = createGlobalStyle`
 
 export const ThemedGlobalStyle = createGlobalStyle`
   html {
-    color: ${({ theme }) => theme.text1};
+    color: ${({ theme }) => theme.text3};
     background-color: ${({ theme }) => theme.bg10};
   }
 
@@ -252,4 +254,13 @@ export const ThemedGlobalStyle = createGlobalStyle`
     background-position: 0 -30vh;
     background: ${({ theme }) => theme.bg10};
   }
+`
+export const FlexCenter = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+export const FlexCenterH = css`
+  display: flex;
+  align-items: center;
 `
