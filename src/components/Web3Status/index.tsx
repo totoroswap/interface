@@ -13,7 +13,6 @@ import { useWalletModalToggle } from '../../state/application/hooks'
 import { isTransactionRecent, useAllTransactions } from '../../state/transactions/hooks'
 import { TransactionDetails } from '../../state/transactions/reducer'
 import { shortenAddress } from '../../utils'
-import { ButtonSecondary } from '../Button'
 
 import Identicon from '../Identicon'
 import Loader from '../Loader'
@@ -32,24 +31,6 @@ const IconWrapper = styled.div<{ size?: number }>`
   }
 `
 
-const Web3StatusGeneric = styled(ButtonSecondary)`
-  ${({ theme }) => theme.flexRowNoWrap}
-  width: 100%;
-  align-items: center;
-  //padding: 0.5rem;
-  border-radius: 12px;
-  cursor: pointer;
-  user-select: none;
-  :focus {
-    outline: none;
-  }
-`
-const Web3StatusError = styled(Web3StatusGeneric)`
-  background-color: ${({ theme }) => theme.red1};
-  color: ${({ theme }) => theme.white};
-  font-weight: 500;
-`
-
 export const Web3StatusConnect = styled.div<{ faded?: boolean }>`
   ${() => FlexCenter}
   background: ${({ theme }) => theme.primary1};
@@ -65,8 +46,29 @@ export const Web3StatusConnect = styled.div<{ faded?: boolean }>`
   &:hover {
     opacity: 0.95;
   }
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    height: 35px;
+    margin-right: 10px;
+  `};
 `
 
+const Web3StatusError = styled(Web3StatusConnect)`
+  ${({ theme }) => theme.flexRowNoWrap}
+  width: 100%;
+  align-items: center;
+  border-radius: 24px;
+  cursor: pointer;
+  user-select: none;
+  :focus {
+    outline: none;
+  }
+  padding: 0 5px;
+  margin-right: 60px;
+  background-color: ${({ theme }) => theme.yellow2};
+  border-color: ${({ theme }) => theme.yellow2};
+  color: ${({ theme }) => theme.white};
+  font-weight: 500;
+`
 const Web3StatusConnected = styled(Web3StatusConnect)<{ pending?: boolean }>`
   width: auto;
   padding: 0 10px;

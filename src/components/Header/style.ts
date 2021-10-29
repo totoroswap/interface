@@ -18,11 +18,9 @@ export const HeaderView = styled.div`
       height: 24px;
       margin-left: 16px;
       cursor: pointer;
-    }
-    .logo {
-      width: 96px;
-      height: 28px;
-      margin-left: 20px;
+      &.open {
+        transform: rotate(180deg);
+      }
     }
   }
   .header-center {
@@ -31,15 +29,15 @@ export const HeaderView = styled.div`
   .header-right {
     display: flex;
     align-items: center;
-    .connect-wallet {
-      width: 99px;
-      height: 40px;
-      background: #135658;
-      box-shadow: 0px -4px 0px 0px rgba(255, 255, 255, 0.2);
-      border-radius: 24px;
-      font-size: 16px;
-      color: #fff4df;
-      line-height: 40px;
-    }
   }
+`
+export const Logo = styled.img`
+  width: 96px;
+  height: 28px;
+  margin-left: 20px;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    width: 60px;
+    height: auto;
+    margin-left: 10px;
+  `};
 `

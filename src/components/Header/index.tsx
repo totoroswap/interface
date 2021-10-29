@@ -10,8 +10,11 @@ import { TOTORO_TOKEN_INFO } from '../../constants'
 import LogWhiteSvg from '../../assets/svg/logo_white.svg'
 import LogDarkSvg from '../../assets/svg/logo_dark.svg'
 import MenuTabSvg from '../../assets/svg/menu/menu_tab.svg'
+import cx from 'classnames'
 
-import { HeaderView } from './style'
+import { HeaderView, Logo } from './style'
+import { useModalOpen, useToggleModal } from '../../state/application/hooks'
+import { ApplicationModal } from '../../state/application/actions'
 
 export default function Header() {
   const { account } = useActiveWeb3React()
@@ -26,12 +29,14 @@ export default function Header() {
     return Number(b) < 0.000001 ? 0 : b
   }
 
+  const toggle = useToggleModal(ApplicationModal.MENU)
+  const open = useModalOpen(ApplicationModal.MENU)
   return (
     <>
       <HeaderView>
         <div className="header-left">
-          <img className="menu-tab" src={MenuTabSvg} alt="" />
-          <img className="logo" src={isDark ? LogDarkSvg : LogWhiteSvg} alt="logo" />
+          <img className={cx({ 'menu-tab': true, open })} src={MenuTabSvg} alt="" onClick={toggle} />
+          <Logo src={isDark ? LogDarkSvg : LogWhiteSvg} />
         </div>
         <div className="header-center" />
         <div className="header-right">

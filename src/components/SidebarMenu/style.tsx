@@ -4,11 +4,11 @@ import { FlexCenterH } from '../../theme'
 
 export const SidebarMenuView = styled.div`
   width: 240px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding-top: 20px;
   background: ${({ theme }) => theme.bg1};
-
   .menu-list {
     flex: 1;
   }
@@ -20,6 +20,12 @@ export const SidebarMenuView = styled.div`
     padding: 16px;
     display: grid;
     grid-template-columns: 1fr 100px;
+    &.mini {
+      width: 52px;
+      height: 55px;
+      border-radius: 20px 20px 0 0;
+      cursor: pointer;
+    }
     .menu-footer-l > div,
     .menu-footer-r > div {
       margin-top: 16px;
@@ -95,4 +101,18 @@ export const MenuItem = styled(NavLink)`
   &.active {
     background: #faf8f6;
   }
+`
+export const HideSmall = styled.div<{ open: boolean }>`
+  transition: all 200ms;
+  width: ${({ open }) => (open ? '52px' : '240px')};
+  overflow: hidden;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    display: none;
+  `};
+`
+export const ShowSmall = styled.div`
+  display: none;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    display: block;
+  `};
 `
