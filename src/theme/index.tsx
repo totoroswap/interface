@@ -42,10 +42,11 @@ export function colors(darkMode: boolean): Colors {
 
     // text
     text1: darkMode ? '#FFFFFF' : '#000000', //
-    text2: darkMode ? '#FFF4DF' : '#FFF4DF', //
-    text3: darkMode ? '#135658' : '#135658', //
+    text2: darkMode ? '#ffffff' : '#135658', //
+    text3: darkMode ? '#ffffff' : '#135658', //
     text4: darkMode ? '#4B9395' : '#4B9395', //
     text5: darkMode ? '#3F4E50' : '#3F4E50',
+    text8: darkMode ? '#FFF4DF' : '#FFF4DF', //
 
     // backgrounds / greys
     bg1: darkMode ? '#212429' : '#FFFFFF',
@@ -53,11 +54,12 @@ export function colors(darkMode: boolean): Colors {
     bg3: darkMode ? '#40444F' : '#EDEEF2',
     bg4: darkMode ? '#565A69' : '#CED0D9',
     bg5: darkMode ? '#6C7284' : '#888D9B',
-    bg6: darkMode ? '#f2f8f0' : '#f2f8f0', //
+    bg6: darkMode ? '#40444F' : '#f2f8f0', //
+    bg7: darkMode ? '#F1F5F5' : '#F1F5F5', //
 
     //specialty colors
     modalBG: darkMode ? 'rgba(0,0,0,.425)' : 'rgba(0,0,0,0.3)',
-    advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
+    advancedBG: darkMode ? 'rgba(33,36,41,0.95)' : 'rgba(255,255,255,0.95)',
 
     //primary colors
     primary1: darkMode ? '#135658' : '#135658', //
@@ -90,6 +92,7 @@ export function colors(darkMode: boolean): Colors {
     bg9: darkMode ? '#CED0D9' : '#565A69',
     bg10: darkMode ? '#2C2F36' : '#EAF2FB',
     bg11: darkMode ? '#c7cccd' : '#F1F5F8',
+    bg12: darkMode ? '#F6F2ED' : '#F6F2ED', //
     text6: darkMode ? '#3285FF' : '#3285FF',
     text7: darkMode ? '#C3C5CB' : '#ffffff',
     gradual1: darkMode ? '#065163' : '#0ACFFE',
@@ -109,8 +112,14 @@ export function colors(darkMode: boolean): Colors {
     disabled: darkMode ? '#6c6c6c' : '#9A9CA4',
     disabled2: darkMode ? 'rgba(86, 90, 105, 0.6)' : 'rgba(86, 90, 105, 0.6)',
     disabled3: darkMode ? '#A1BCBD' : '#A1BCBD', //
+    disabled4: darkMode ? '#D3D9D3' : '#D3D9D3', //
+    disabled5: darkMode ? '#E9ECE9' : '#E9ECE9', //
     mask1: darkMode ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.6)',
-    mask2: darkMode ? 'rgba(0,0,0,0.9)' : 'rgba(255,255,255,0.9)'
+    mask2: darkMode ? 'rgba(0,0,0,0.9)' : 'rgba(255,255,255,0.9)',
+    shadow1: darkMode ? '#89aaab' : '#89aaab', //
+    shadow2: darkMode ? '#427779' : '#427779', //
+    shadow3: darkMode ? '#C8C5C3' : '#C8C5C3', //
+    shadow4: darkMode ? '#404037' : '#eae8d6' //
   }
 }
 

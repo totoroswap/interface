@@ -34,10 +34,10 @@ const IconWrapper = styled.div<{ size?: number }>`
 export const Web3StatusConnect = styled.div<{ faded?: boolean }>`
   ${() => FlexCenter}
   background: ${({ theme }) => theme.primary1};
-  color: ${({ theme }) => theme.text2};
+  color: ${({ theme }) => theme.text8};
   width: 99px;
   height: 40px;
-  box-shadow: 0px -4px 0px 0px rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 4px 0 0 ${({ theme }) => theme.shadow2};
   border-radius: 24px;
   font-size: 16px;
   border: none;
@@ -68,6 +68,7 @@ const Web3StatusError = styled(Web3StatusConnect)`
   border-color: ${({ theme }) => theme.yellow2};
   color: ${({ theme }) => theme.white};
   font-weight: 500;
+  box-shadow: 0 0 0 0;
 `
 const Web3StatusConnected = styled(Web3StatusConnect)<{ pending?: boolean }>`
   width: auto;

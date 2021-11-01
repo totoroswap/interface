@@ -99,7 +99,7 @@ export const MenuItem = styled(NavLink)`
     margin: 0 12px 0 16px;
   }
   &.active {
-    background: #faf8f6;
+    background: ${({ theme }) => theme.bg2};
   }
 `
 export const HideSmall = styled.div<{ open: boolean }>`

@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from 'react'
-import { Settings, X } from 'react-feather'
+import { X } from 'react-feather'
 import ReactGA from 'react-ga'
 import { Text } from 'rebass'
 import styled, { ThemeContext } from 'styled-components'
@@ -12,7 +12,7 @@ import {
   useUserSlippageTolerance,
   useUserSingleHopOnly
 } from '../../state/user/hooks'
-import { TYPE } from '../../theme'
+import { FlexCenter, TYPE } from '../../theme'
 import { ButtonError } from '../Button'
 import { AutoColumn } from '../Column'
 import Modal from '../Modal'
@@ -20,15 +20,15 @@ import QuestionHelper from '../QuestionHelper'
 import { RowBetween, RowFixed } from '../Row'
 import Toggle from '../Toggle'
 import TransactionSettings from '../TransactionSettings'
+import SvgPlus from '../SvgPlus'
+import SettingSvg from '../../assets/svg/setting.svg'
+import RefreshSvg from '../../assets/svg/refresh.svg'
 
-const StyledMenuIcon = styled(Settings)`
-  height: 20px;
-  width: 20px;
-
-  > * {
-    stroke: ${({ theme }) => theme.text2};
-  }
-
+const StyledMenuIcon = styled.span`
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
   :hover {
     opacity: 0.7;
   }
@@ -42,7 +42,7 @@ const StyledCloseIcon = styled(X)`
   }
 
   > * {
-    stroke: ${({ theme }) => theme.text1};
+    stroke: ${({ theme }) => theme.text3};
   }
 `
 
@@ -53,12 +53,12 @@ const PText = styled(Text)`
 const StyledMenuButton = styled.button`
   position: relative;
   width: 100%;
-  height: 100%;
   border: none;
   background-color: transparent;
   margin: 0;
-  padding: 0;
   height: 35px;
+  display: flex;
+  align-items: center;
 
   padding: 0.15rem 0.5rem;
   border-radius: 0.5rem;
@@ -73,10 +73,10 @@ const StyledMenuButton = styled.button`
     margin-top: 2px;
   }
 `
-const EmojiWrapper = styled.div`
-  position: absolute;
-  bottom: -6px;
-  right: 0px;
+const EmojiWrapper = styled.span`
+  ${FlexCenter};
+  width: 24px;
+  height: 24px;
   font-size: 14px;
 `
 
@@ -103,6 +103,7 @@ const MenuFlyout = styled.span`
   top: 3rem;
   right: -2rem;
   z-index: 100;
+  color: ${({ theme }) => theme.text3};
 
   ${({ theme }) => theme.mediaWidth.upToMedium`
     min-width: 18.125rem;
@@ -140,7 +141,6 @@ export default function SettingsTab() {
 
   // show confirmation view before turning on
   const [showConfirmation, setShowConfirmation] = useState(false)
-
   useOnClickOutside(node, open ? toggle : undefined)
 
   return (
@@ -183,14 +183,17 @@ export default function SettingsTab() {
           </AutoColumn>
         </ModalContentWrapper>
       </Modal>
-      <StyledMenuButton onClick={toggle} id="open-settings-dialog-button">
-        <StyledMenuIcon />
+      <StyledMenuButton id="open-settings-dialog-button">
+        <StyledMenuIcon onClick={toggle}>
+          <SvgPlus size="24px" src={SettingSvg} color={theme.text3} />
+        </StyledMenuIcon>
+        <StyledMenuIcon>
+          <SvgPlus size="24px" src={RefreshSvg} color={theme.text3} />
+        </StyledMenuIcon>
         {expertMode ? (
-          <EmojiWrapper>
-            <span role="img" aria-label="wizard-icon">
-              🧙
-            </span>
-          </EmojiWrapper>
+          <StyledMenuIcon>
+            <EmojiWrapper>🧙</EmojiWrapper>
+          </StyledMenuIcon>
         ) : null}
       </StyledMenuButton>
       {open && (
@@ -210,7 +213,7 @@ export default function SettingsTab() {
             </PText>
             <RowBetween>
               <RowFixed>
-                <TYPE.black fontWeight={400} fontSize={14} color={theme.text2}>
+                <TYPE.black fontWeight={400} fontSize={14} color={theme.text3}>
                   Toggle Expert Mode
                 </TYPE.black>
                 <QuestionHelper text="Bypasses confirmation modals and allows high slippage trades. Use at your own risk." />
@@ -233,7 +236,7 @@ export default function SettingsTab() {
             </RowBetween>
             <RowBetween>
               <RowFixed>
-                <TYPE.black fontWeight={400} fontSize={14} color={theme.text2}>
+                <TYPE.black fontWeight={400} fontSize={14} color={theme.text3}>
                   Disable Multihops
                 </TYPE.black>
                 <QuestionHelper text="Restricts swaps to direct pairs only." />

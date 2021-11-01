@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import HomeIcon from '../../assets/svg/menu/home.svg'
 import ExchangeIcon from '../../assets/svg/menu/exchange.svg'
 import LiquidityIcon from '../../assets/svg/menu/liquidity.svg'
@@ -23,10 +23,10 @@ import { LANGUAGES } from '../../i18n'
 import { useTranslation } from 'react-i18next'
 import { SidebarMenuView, MenuItem, ShowSmall, HideSmall } from './style'
 import SvgPlus from '../SvgPlus'
-import { theme } from '../../theme'
 import Drawer from '../Drawer'
 import { useCloseModals, useModalOpen } from '../../state/application/hooks'
 import { ApplicationModal } from '../../state/application/actions'
+import { ThemeContext } from 'styled-components'
 const sidebarMenuList = [
   {
     icon: HomeIcon,
@@ -89,7 +89,7 @@ export default function SidebarMenu() {
     setShowLanguage(false)
     i18n.changeLanguage(key)
   }
-  const themeData = theme(darkMode)
+  const theme = useContext(ThemeContext)
   const MenuContent = ({ drawer }: MenuProps) => {
     const isMini = !drawer && open
     return (
@@ -104,7 +104,7 @@ export default function SidebarMenu() {
         </div>
         {isMini ? (
           <div className="menu-footer mini" onClick={toggle}>
-            <SvgPlus src={SettingSvg} size="24px" color={themeData.primary1} />
+            <SvgPlus src={SettingSvg} size="24px" color={theme.text3} />
           </div>
         ) : (
           <div className="menu-footer">
@@ -138,9 +138,9 @@ export default function SidebarMenu() {
               </div>
               <div>
                 <div className="theme-switch" onClick={toggleDarkMode}>
-                  <SvgPlus src={SunSvg} size="24px" color={!darkMode ? themeData.primary1 : themeData.disabled3} />
+                  <SvgPlus src={SunSvg} size="24px" color={!darkMode ? theme.primary1 : theme.disabled3} />
                   <span>/</span>
-                  <SvgPlus src={MoonSvg} size="24px" color={darkMode ? themeData.primary1 : themeData.disabled3} />
+                  <SvgPlus src={MoonSvg} size="24px" color={darkMode ? theme.text1 : theme.disabled3} />
                 </div>
               </div>
             </div>

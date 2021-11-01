@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { darken } from 'polished'
 import { useTranslation } from 'react-i18next'
 import { NavLink, Link as HistoryLink } from 'react-router-dom'
 
@@ -19,34 +18,6 @@ const Tabs = styled.div`
   justify-content: space-evenly;
 `
 
-const activeClassName = 'ACTIVE'
-
-const StyledNavLink = styled(NavLink).attrs({
-  activeClassName
-})`
-  ${({ theme }) => theme.flexRowNoWrap}
-  align-items: center;
-  justify-content: center;
-  height: 3rem;
-  border-radius: 3rem;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: ${({ theme }) => theme.text3};
-  font-size: 20px;
-
-  &.${activeClassName} {
-    border-radius: 12px;
-    font-weight: 500;
-    color: ${({ theme }) => theme.text1};
-  }
-
-  :hover,
-  :focus {
-    color: ${({ theme }) => darken(0.1, theme.text1)};
-  }
-`
-
 const ActiveText = styled.div`
   font-weight: 500;
   font-size: 20px;
@@ -56,17 +27,56 @@ const StyledArrowLeft = styled(ArrowLeft)`
   color: ${({ theme }) => theme.text1};
 `
 
+const SwapTabs = styled.div`
+  width: 240px;
+  margin: auto auto 40px auto;
+  display: flex;
+  box-shadow: 0px 4px 0px 0px ${({ theme }) => theme.shadow3};
+  border-radius: 24px;
+  background: ${({ theme }) => theme.bg12};
+  padding-bottom: 4px;
+`
+const activeClassName = 'ACTIVE'
+
+const StyledNavLink = styled(NavLink).attrs({
+  activeClassName
+})`
+  ${({ theme }) => theme.flexRowNoWrap}
+  height: 40px;
+  padding: 0 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: ${({ theme }) => theme.primary1};
+  font-size: 16px;
+  font-weight: bold;
+
+  &.${activeClassName} {
+    background: ${({ theme }) => theme.primary1};
+    color: ${({ theme }) => theme.text8};
+    box-shadow: 0 4px 0 0 ${({ theme }) => theme.shadow2};
+  }
+
+  :hover,
+  :focus {
+    opacity: 0.95;
+  }
+`
+
 export function SwapPoolTabs({ active }: { active: 'swap' | 'pool' }) {
   const { t } = useTranslation()
   return (
-    <Tabs style={{ marginBottom: '20px', display: 'none' }}>
+    <SwapTabs>
       <StyledNavLink id={`swap-nav-link`} to={'/swap'} isActive={() => active === 'swap'}>
         {t('swap')}
       </StyledNavLink>
       <StyledNavLink id={`pool-nav-link`} to={'/pool'} isActive={() => active === 'pool'}>
         {t('pool')}
       </StyledNavLink>
-    </Tabs>
+    </SwapTabs>
   )
 }
 

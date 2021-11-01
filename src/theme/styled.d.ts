@@ -20,13 +20,16 @@ export interface Colors {
   bg4: Color
   bg5: Color
   bg6: Color
+  bg7: Color
 
   bg8: Color
   bg9: Color
   bg10: Color
   bg11: Color
+  bg12: Color
   text6: Color
   text7: Color
+  text8: Color
   gradual1: Color
   gradual2: Color
   gradual3: Color
@@ -44,8 +47,14 @@ export interface Colors {
   disabled: Color
   disabled2: Color
   disabled3: Color
+  disabled4: Color
+  disabled5: Color
   mask1: Color
   mask2: Color
+  shadow1: Color
+  shadow2: Color
+  shadow3: Color
+  shadow4: Color
 
   modalBG: Color
   advancedBG: Color

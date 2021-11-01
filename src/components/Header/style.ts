@@ -3,11 +3,13 @@ import styled from 'styled-components'
 export const HeaderView = styled.div`
   width: 100%;
   height: 64px;
+  min-height: 64px;
   position: relative;
   display: flex;
   background: #ffffff;
-  box-shadow: 0 2px 0 0 #eae8d6;
+  box-shadow: 0 2px 0 0 ${({ theme }) => theme.shadow4};
   background: ${({ theme }) => theme.bg1};
+  margin-bottom: 2px;
   .header-left {
     width: 100%;
     height: 100%;

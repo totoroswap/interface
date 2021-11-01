@@ -45,9 +45,8 @@ const Option = styled(FancyButton)<{ active: boolean }>`
   :hover {
     cursor: pointer;
   }
-  background: ${({ active, theme }) => active && (
-    'linear-gradient(90deg, '+theme.primary3 + ' 0%, ' + theme.primary2 +' 100%)'
-  )};
+  background: ${({ active, theme }) =>
+    active && 'linear-gradient(90deg, ' + theme.primary3 + ' 0%, ' + theme.primary2 + ' 100%)'};
   color: ${({ active, theme }) => (active ? theme.white : theme.text1)};
 `
 
@@ -156,7 +155,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
     <AutoColumn gap="md">
       <AutoColumn gap="sm">
         <PRowFixed>
-          <TYPE.black fontWeight={400} fontSize={14} color={theme.text2}>
+          <TYPE.black fontWeight={400} fontSize={14} color={theme.text3}>
             Slippage tolerance
           </TYPE.black>
           <QuestionHelper text="Your transaction will revert if the price changes unfavorably by more than this percentage." />
@@ -242,7 +241,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
 
       <AutoColumn gap="sm">
         <RowFixed>
-          <TYPE.black fontSize={14} fontWeight={400} color={theme.text2}>
+          <TYPE.black fontSize={14} fontWeight={400} color={theme.text3}>
             Transaction deadline
           </TYPE.black>
           <QuestionHelper text="Your transaction will revert if it is pending for more than this long." />

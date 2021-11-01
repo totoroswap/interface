@@ -16,7 +16,7 @@ import { useUnsupportedTokens } from '../../hooks/Tokens'
 const DetailsFooter = styled.div<{ show: boolean }>`
   padding-top: calc(16px + 2rem);
   padding-bottom: ${({ show }) => (show ? '16px' : '0')};
-  height: ${({ show }) => show ? 'auto' : '0'};
+  height: ${({ show }) => (show ? 'auto' : '0')};
   overflow: hidden;
   margin-top: -2rem;
   width: 100%;

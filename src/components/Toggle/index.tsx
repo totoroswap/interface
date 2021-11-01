@@ -2,16 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 
 const ToggleElement = styled.span<{ isActive?: boolean; isOnSwitch?: boolean }>`
-  color: ${({ theme, isActive, isOnSwitch }) => (isActive ? (isOnSwitch ? theme.white : theme.text2) : theme.text3)};
+  color: ${({ theme, isActive, isOnSwitch }) => (isActive ? (isOnSwitch ? theme.white : theme.text3) : theme.text3)};
   font-size: 14px;
 
   padding: 0.3rem 0.6rem;
   border-radius: 12px;
 
-  background: ${({ theme, isActive, isOnSwitch }) => (isActive ? (isOnSwitch ? (
-          'linear-gradient(90deg, '+theme.primary3 + ' 0%, ' + theme.primary2 +' 100%)'
-  ) : theme.bg9) : theme.bg1)};
-  color: ${({ theme, isActive, isOnSwitch }) => (isActive ? (isOnSwitch ? theme.white : theme.white) : theme.text2)};
+  background: ${({ theme, isActive, isOnSwitch }) =>
+    isActive
+      ? isOnSwitch
+        ? 'linear-gradient(90deg, ' + theme.primary3 + ' 0%, ' + theme.primary2 + ' 100%)'
+        : theme.bg9
+      : theme.bg1};
+  color: ${({ theme, isActive, isOnSwitch }) => (isActive ? (isOnSwitch ? theme.white : theme.white) : theme.text3)};
   font-weight: ${({ isOnSwitch }) => (isOnSwitch ? '500' : '400')};
   :hover {
     user-select: ${({ isOnSwitch }) => (isOnSwitch ? 'none' : 'initial')};

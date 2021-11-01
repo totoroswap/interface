@@ -329,3 +329,26 @@ export function ButtonRadio({ active, ...rest }: { active?: boolean } & ButtonPr
     return <ButtonPrimary {...rest} />
   }
 }
+
+const ReBase = styled(RebassButton)<{
+  padding?: string
+  width?: string
+  height?: string
+  borderRadius?: string
+  disabled?: boolean
+}>`
+  width: ${({ width }) => width || '100%'};
+  height: ${({ height }) => height || '100%'};
+  border-radius: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+export const TButtonPrimary = styled(ReBase)`
+  background: ${({ theme, disabled }) => (disabled ? theme.disabled4 : theme.primary1)};
+  box-shadow: 0 4px 0 0 ${({ theme, disabled }) => (disabled ? theme.disabled5 : theme.shadow2)};
+
+  &:hover {
+    opacity: 0.95;
+  }
+`

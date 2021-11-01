@@ -1,6 +1,6 @@
 import { ChainId, CurrencyAmount, JSBI, Token, Trade } from '@totoroswap/sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
-import { ArrowDown } from 'react-feather'
+
 import ReactGA from 'react-ga'
 import { Text } from 'rebass'
 import styled, { ThemeContext } from 'styled-components'
@@ -39,7 +39,7 @@ import {
   useSwapState
 } from '../../state/swap/hooks'
 import { useExpertModeManager, useUserSlippageTolerance, useUserSingleHopOnly } from '../../state/user/hooks'
-import { LinkStyledButton, TYPE } from '../../theme'
+import { FlexCenter, LinkStyledButton, TYPE } from '../../theme'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { computeTradePriceBreakdown, warningSeverity } from '../../utils/prices'
 import AppBody from '../AppBody'
@@ -49,42 +49,31 @@ import { useIsTransactionUnsupported } from 'hooks/Trades'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
 import { isTradeBetter } from 'utils/trades'
 import { RouteComponentProps } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 import TotoroSwapFarmingRouterAbi from '../../constants/abis/TotoroSwapFarmingRouter.json'
 import { getRpcUrl } from '../../constants/web3'
 import { formatAmount, numToWei } from '../../utils/format'
 import Web3 from 'web3'
 import { TOTORO_TOKEN_INFO } from '../../constants'
+import { ReactComponent as ArrowDownSvg } from '../../assets/svg/arrow_down.svg'
 
 export const MarginT = styled.div`
   margin-top: 0.75rem;
 `
 
 export const ArrowDownBox = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 29px;
-  height: 29px;
+  ${FlexCenter};
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: ${({ theme }) => theme.bg8};
-  border: 5px solid ${({ theme }) => theme.bg1};
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: ${({ theme }) => theme.bg6};
+  margin: 20px;
 `
-const LanguageView = styled.p`
-  line-height: 0;
-  font-weight: 600;
-  font-size: 12px;
-  color: ${({ theme }) => theme.text2};
-  margin: 16px;
-  //transform: translateY(-16px);
-  span {
-    cursor: pointer;
-    color: ${({ theme }) => theme.text6};
+
+const ArrowDownIcon = styled(ArrowDownSvg)<{ color: string }>`
+  width: 24px;
+  height: 24px;
+  path {
+    stroke: ${({ color }) => color};
   }
 `
 const TradeBonus = styled.div`
@@ -104,7 +93,6 @@ const TradeBonusAmount = styled.span`
 `
 export default function Swap({ history }: RouteComponentProps) {
   const loadedUrlParams = useDefaultsFromURLSearch()
-  const { t, i18n } = useTranslation()
   // token warning stuff
   const [loadedInputCurrency, loadedOutputCurrency] = [
     useCurrency(loadedUrlParams?.inputCurrencyId),
@@ -353,7 +341,7 @@ export default function Swap({ history }: RouteComponentProps) {
 
   const swapIsUnsupported = useIsTransactionUnsupported(currencies?.INPUT, currencies?.OUTPUT)
 
-  const [tradeBonus, setTradeBonus] = useState('12.3')
+  const [tradeBonus, setTradeBonus] = useState('0')
 
   const getTradeBonus = (amountIn: string | number, routerAddress: Array<string>) => {
     return
@@ -424,6 +412,7 @@ export default function Swap({ history }: RouteComponentProps) {
                 onCurrencySelect={handleInputSelect}
                 otherCurrency={currencies[Field.OUTPUT]}
                 id="swap-currency-input"
+                inputTitle="From"
               />
             </MarginT>
             <AutoColumn justify="space-between">
@@ -432,13 +421,12 @@ export default function Swap({ history }: RouteComponentProps) {
                   {
                     <ArrowWrapper clickable padding="2px">
                       <ArrowDownBox>
-                        <ArrowDown
-                          size="16"
+                        <ArrowDownIcon
                           onClick={() => {
                             setApprovalSubmitted(false) // reset 2 step UI for approvals
                             onSwitchTokens()
                           }}
-                          color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? theme.primary1 : theme.text2}
+                          color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? theme.primary1 : theme.text3}
                         />
                       </ArrowDownBox>
                     </ArrowWrapper>
@@ -462,13 +450,14 @@ export default function Swap({ history }: RouteComponentProps) {
               otherCurrency={currencies[Field.INPUT]}
               showMax={false}
               id="swap-currency-output"
+              inputTitle="To"
             />
 
             {recipient !== null && !showWrap ? (
               <>
                 <AutoRow justify="space-between" style={{ padding: '0 1rem' }}>
                   <ArrowWrapper clickable={false}>
-                    <ArrowDown size="16" color={theme.text2} />
+                    <ArrowDownIcon color={theme.text3} />
                   </ArrowWrapper>
                   <LinkStyledButton id="remove-recipient-button" onClick={() => onChangeRecipient(null)}>
                     - Remove send
@@ -482,10 +471,10 @@ export default function Swap({ history }: RouteComponentProps) {
                 {Number(tradeBonus) > 0 && routerAddress.length >= 2 && Number(formattedAmounts[Field.INPUT]) > 0 && (
                   <TradeBonus>
                     <RowBetween align="center">
-                      <Text fontWeight={500} fontSize={14} color={theme.text2}>
+                      <Text fontWeight={500} fontSize={14} color={theme.text3}>
                         Trade Bonus
                       </Text>
-                      <Text fontWeight={500} fontSize={14} color={theme.text2}>
+                      <Text fontWeight={500} fontSize={14} color={theme.text3}>
                         <TradeBonusAmount>{tradeBonus}</TradeBonusAmount> {TOTORO_TOKEN_INFO.symbol}(estimated)
                       </Text>
                     </RowBetween>
@@ -496,7 +485,7 @@ export default function Swap({ history }: RouteComponentProps) {
                     {Boolean(trade) && (
                       <>
                         <RowBetween align="center" marginTop="10px">
-                          <Text fontWeight={500} fontSize={14} color={theme.text2}>
+                          <Text fontWeight={500} fontSize={14} color={theme.text3}>
                             Price
                           </Text>
                           <TradePrice
@@ -506,10 +495,10 @@ export default function Swap({ history }: RouteComponentProps) {
                           />
                         </RowBetween>
                         <RowBetween align="center" marginTop="10px">
-                          <ClickableText fontWeight={500} fontSize={14} color={theme.text2} onClick={toggleSettings}>
+                          <ClickableText fontWeight={500} fontSize={14} color={theme.text3} onClick={toggleSettings}>
                             Slippage Tolerance
                           </ClickableText>
-                          <ClickableText fontWeight={500} fontSize={14} color={theme.text2} onClick={toggleSettings}>
+                          <ClickableText fontWeight={500} fontSize={14} color={theme.text3} onClick={toggleSettings}>
                             {allowedSlippage / 100}%
                           </ClickableText>
                         </RowBetween>
@@ -630,14 +619,6 @@ export default function Swap({ history }: RouteComponentProps) {
         <AdvancedSwapDetailsDropdown trade={trade} />
       ) : (
         <UnsupportedCurrencyFooter show={swapIsUnsupported} currencies={[currencies.INPUT, currencies.OUTPUT]} />
-      )}
-      {false && (
-        <LanguageView>
-          {t('availabel')}
-          <span onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'zh-CN' : 'en')}>
-            {i18n.language === 'en' ? '中文(简体)' : 'English'}
-          </span>
-        </LanguageView>
       )}
     </>
   )
