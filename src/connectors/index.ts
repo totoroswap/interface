@@ -2,7 +2,7 @@ import { Web3Provider } from '@ethersproject/providers'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { WalletLinkConnector } from '@web3-react/walletlink-connector'
-import {ChainId} from "@totoroswap/sdk"
+import { ChainId } from '@totoroswap/sdk'
 // import { PortisConnector } from '@web3-react/portis-connector'
 
 // import { FortmaticConnector } from './Fortmatic'
@@ -35,8 +35,8 @@ export const injected = new InjectedConnector({
 export const walletconnect = new WalletConnectConnector({
   rpc: { [ChainId.BSC]: NETWORK_URL },
   bridge: WALLETCONNECT_BRIDGE_URL,
-  qrcode: true,
-  pollingInterval: 15000
+  qrcode: true
+  // pollingInterval: 15000
 })
 
 // mainnet only
