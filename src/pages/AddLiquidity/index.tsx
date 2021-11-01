@@ -385,11 +385,12 @@ export default function AddLiquidity({
               currency={currencies[Field.CURRENCY_A]}
               id="add-liquidity-input-tokena"
               showCommonBases
+              inputTitle="Input"
             />
             <ColumnCenter>
               <PlusView>
                 <ArrowDownBox>
-                  <Plus size="16" color={theme.text2} />
+                  <Plus size="18" color={theme.text2} />
                 </ArrowDownBox>
               </PlusView>
             </ColumnCenter>
@@ -405,6 +406,7 @@ export default function AddLiquidity({
               currency={currencies[Field.CURRENCY_B]}
               id="add-liquidity-input-tokenb"
               showCommonBases
+              inputTitle="Input"
             />
             {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
               <>

@@ -339,10 +339,11 @@ const ReBase = styled(RebassButton)<{
 }>`
   width: ${({ width }) => width || '100%'};
   height: ${({ height }) => height || '100%'};
-  border-radius: 40%;
+  border-radius: 19px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
 `
 export const TButtonPrimary = styled(ReBase)`
   background: ${({ theme, disabled }) => (disabled ? theme.disabled4 : theme.primary1)};

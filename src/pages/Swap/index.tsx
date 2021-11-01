@@ -5,7 +5,7 @@ import ReactGA from 'react-ga'
 import { Text } from 'rebass'
 import styled, { ThemeContext } from 'styled-components'
 import AddressInputPanel from '../../components/AddressInputPanel'
-import { ButtonError, ButtonLight, ButtonPrimary, ButtonConfirmed } from '../../components/Button'
+import { ButtonError, ButtonPrimary, ButtonConfirmed, TButtonPrimary } from '../../components/Button'
 import Card, { GreyCard } from '../../components/Card'
 import Column, { AutoColumn } from '../../components/Column'
 import ConfirmSwapModal from '../../components/swap/ConfirmSwapModal'
@@ -65,7 +65,6 @@ export const ArrowDownBox = styled.div`
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: ${({ theme }) => theme.bg6};
   margin: 20px;
 `
 
@@ -509,13 +508,15 @@ export default function Swap({ history }: RouteComponentProps) {
               </>
             )}
           </AutoColumn>
-          <BottomGrouping>
+          <BottomGrouping style={{ margin: '30px 0' }}>
             {swapIsUnsupported ? (
               <ButtonPrimary disabled={true}>
                 <TYPE.main mb="4px">Unsupported Asset</TYPE.main>
               </ButtonPrimary>
             ) : !account ? (
-              <ButtonLight onClick={toggleWalletModal}>Connect Wallet</ButtonLight>
+              <TButtonPrimary onClick={toggleWalletModal} height="48px">
+                Connect Wallet
+              </TButtonPrimary>
             ) : showWrap ? (
               <ButtonPrimary disabled={Boolean(wrapInputError)} onClick={onWrap}>
                 {wrapInputError ??

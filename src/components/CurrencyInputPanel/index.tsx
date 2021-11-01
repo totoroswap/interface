@@ -64,7 +64,6 @@ export default function CurrencyInputPanel({
   const handleDismissSearch = useCallback(() => {
     setModalOpen(false)
   }, [setModalOpen])
-
   return (
     <CurrencyInputPanelView id={id}>
       <div className="container">
@@ -73,7 +72,7 @@ export default function CurrencyInputPanel({
             <div className="input-title-l">{inputTitle}</div>
             {account && currency && (
               <div className="input-title-r">
-                Balance: {Number(maxAmount) > 0 ? Number(maxAmount).toFixed(6) : maxAmount}
+                Balance: {Number(maxAmount) > 0 ? Number(Number(maxAmount).toFixed(6)) * 1 : maxAmount}
               </div>
             )}
           </div>
