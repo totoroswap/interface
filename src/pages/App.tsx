@@ -16,6 +16,7 @@ import {
 } from './AddLiquidity/redirects'
 
 import Pool from './Pool'
+import Info from './Info'
 import PoolFinder from './PoolFinder'
 import RemoveLiquidity from './RemoveLiquidity'
 import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
@@ -24,28 +25,8 @@ import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
 import Layout from '../components/Layout'
 
 const AppWrapper = styled.div`
-  display: flex;
-  flex-flow: column;
-  align-items: flex-start;
-  overflow-x: hidden;
-`
-
-const BodyWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  padding-top: 40px;
-  align-items: center;
-  flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
-  z-index: 10;
-
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    padding: 16px;
-    padding-top: 2rem;
-  `};
-
+  height: 100%;
   z-index: 1;
 `
 
@@ -61,30 +42,29 @@ export default function App() {
       <Layout>
         <AppWrapper>
           <URLWarning />
-          <BodyWrapper>
-            <Popups />
-            {false && <Polling />}
-            <Web3ReactManager>
-              <Switch>
-                <Route exact strict path="/swap" component={Swap} />
-                <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
-                <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
-                <Route exact strict path="/find" component={PoolFinder} />
-                <Route exact strict path="/pool" component={Pool} />
-                <Route exact strict path="/create" component={RedirectToAddLiquidity} />
-                <Route exact path="/add" component={AddLiquidity} />
-                <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
-                <Route exact path="/add/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
-                <Route exact path="/create" component={AddLiquidity} />
-                <Route exact path="/create/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
-                <Route exact path="/create/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
-                <Route exact strict path="/remove/:tokens" component={RedirectOldRemoveLiquidityPathStructure} />
-                <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
-                <Route component={RedirectPathToSwapOnly} />
-              </Switch>
-            </Web3ReactManager>
-            <Marginer />
-          </BodyWrapper>
+          <Popups />
+          {false && <Polling />}
+          <Web3ReactManager>
+            <Switch>
+              <Route exact strict path="/swap" component={Swap} />
+              <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
+              <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
+              <Route exact strict path="/find" component={PoolFinder} />
+              <Route exact strict path="/pool" component={Pool} />
+              <Route exact strict path="/info" component={Info} />
+              <Route exact strict path="/create" component={RedirectToAddLiquidity} />
+              <Route exact path="/add" component={AddLiquidity} />
+              <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
+              <Route exact path="/add/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
+              <Route exact path="/create" component={AddLiquidity} />
+              <Route exact path="/create/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
+              <Route exact path="/create/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
+              <Route exact strict path="/remove/:tokens" component={RedirectOldRemoveLiquidityPathStructure} />
+              <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
+              <Route component={RedirectPathToSwapOnly} />
+            </Switch>
+          </Web3ReactManager>
+          <Marginer />
         </AppWrapper>
       </Layout>
     </Suspense>

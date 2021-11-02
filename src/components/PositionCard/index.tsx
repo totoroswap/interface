@@ -9,7 +9,7 @@ import { useTotalSupply } from '../../data/TotalSupply'
 
 import { useActiveWeb3React } from '../../hooks'
 import { useTokenBalance } from '../../state/wallet/hooks'
-import { ExternalLink, TYPE } from '../../theme'
+import { ExternalLink } from '../../theme'
 import { currencyId } from '../../utils/currencyId'
 import { unwrappedToken } from '../../utils/wrappedCurrency'
 import { ButtonPrimary, ButtonSecondary, ButtonEmpty } from '../Button'
@@ -25,6 +25,7 @@ import DoubleCurrencyLogo from '../DoubleLogo'
 import { RowBetween, RowFixed, AutoRow } from '../Row'
 import { Dots } from '../swap/styleds'
 import { BIG_INT_ZERO } from '../../constants'
+import { ReactComponent as LeafSvg } from '../../assets/svg/leaf.svg'
 
 export const FixedHeightRow = styled(RowBetween)`
   height: 24px;
@@ -36,12 +37,36 @@ export const HoverCard = styled(Card)`
     border: 1px solid ${({ theme }) => darken(0.06, theme.bg2)};
   }
 `
+
+const LeafIcon = styled(LeafSvg)`
+  width: 24px;
+  height: 24px;
+`
+
 const StyledPositionCard = styled(LightCard)<{ bgColor: any }>`
   border: none;
   background: ${({ theme, bgColor }) =>
     `radial-gradient(91.85% 100% at 1.84% 0%, ${transparentize(0.8, bgColor)} 0%, ${theme.bg3} 100%) `};
   position: relative;
   overflow: hidden;
+`
+const LightCardBody = styled(LightCard)`
+  margin: auto;
+  display: flex;
+  color: ${({ theme }) => theme.text3};
+  font-size: 14px;
+  line-height: 20px;
+  & > div:nth-child(1) {
+    padding-right: 5px;
+  }
+  & > div:nth-last-child(1) {
+    flex: 1;
+  }
+`
+const PositionCardView = styled.div`
+  position: relative;
+  z-index: 1;
+  margin: auto;
 `
 
 interface PositionCardProps {
@@ -80,7 +105,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false, border }: Pos
       : [undefined, undefined]
 
   return (
-    <>
+    <PositionCardView>
       {userPoolBalance && JSBI.greaterThan(userPoolBalance.raw, JSBI.BigInt(0)) ? (
         <GreyCard border={border}>
           <AutoColumn gap="12px">
@@ -145,17 +170,17 @@ export function MinimalPositionCard({ pair, showUnwrapped = false, border }: Pos
           </AutoColumn>
         </GreyCard>
       ) : (
-        <LightCard>
-          <TYPE.subHeader style={{ textAlign: 'center' }}>
-            <span role="img" aria-label="wizard-icon">
-              ⭐️
-            </span>{' '}
-            By adding liquidity you&apos;ll earn 0.3% of all trades on this pair proportional to your share of the pool.
-            Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.
-          </TYPE.subHeader>
-        </LightCard>
+        <LightCardBody>
+          <div>
+            <LeafIcon />
+          </div>
+          <div>
+            By adding liquidity you&apos;ll earn 0.17% of all trades on this pair proportional to your share of the
+            pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.
+          </div>
+        </LightCardBody>
       )}
-    </>
+    </PositionCardView>
   )
 }
 

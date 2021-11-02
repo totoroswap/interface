@@ -55,6 +55,7 @@ export interface Colors {
   shadow2: Color
   shadow3: Color
   shadow4: Color
+  grayscale1: string
 
   modalBG: Color
   advancedBG: Color

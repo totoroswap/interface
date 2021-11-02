@@ -3,13 +3,22 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { NavLink, Link as HistoryLink } from 'react-router-dom'
 
-import { ArrowLeft } from 'react-feather'
 import { RowBetween } from '../Row'
 // import QuestionHelper from '../QuestionHelper'
 import Settings from '../Settings'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from 'state'
 import { resetMintState } from 'state/mint/actions'
+import { ReactComponent as BackSvg } from '../../assets/svg/back.svg'
+import { FlexCenterH } from '../../theme'
+
+const BackIcon = styled(BackSvg)`
+  width: 24px;
+  height: 24px;
+  path {
+    stroke: ${({ theme }) => theme.text3};
+  }
+`
 
 const Tabs = styled.div`
   ${({ theme }) => theme.flexRowNoWrap}
@@ -19,14 +28,21 @@ const Tabs = styled.div`
 `
 
 const ActiveText = styled.div`
-  font-weight: 500;
-  font-size: 20px;
+  margin-left: 10px;
+  & > p:nth-child(1) {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+    margin: 0;
+    padding: 0;
+  }
+  & > p:nth-child(2) {
+    font-size: 12px;
+    line-height: 12px;
+    margin: 8px 0 0 0;
+    padding: 0;
+  }
 `
-
-const StyledArrowLeft = styled(ArrowLeft)`
-  color: ${({ theme }) => theme.text1};
-`
-
 const SwapTabs = styled.div`
   width: 240px;
   margin: auto auto 40px auto;
@@ -65,6 +81,9 @@ const StyledNavLink = styled(NavLink).attrs({
     opacity: 0.95;
   }
 `
+const TabsLeft = styled.div`
+  ${FlexCenterH};
+`
 
 export function SwapPoolTabs({ active }: { active: 'swap' | 'pool' }) {
   const { t } = useTranslation()
@@ -83,11 +102,16 @@ export function SwapPoolTabs({ active }: { active: 'swap' | 'pool' }) {
 export function FindPoolTabs() {
   return (
     <Tabs>
-      <RowBetween style={{ padding: '1rem 1rem 0 1rem' }}>
-        <HistoryLink to="/pool">
-          <StyledArrowLeft />
-        </HistoryLink>
-        <ActiveText>Import Pool</ActiveText>
+      <RowBetween style={{ padding: '24px 24px 0' }}>
+        <TabsLeft>
+          <HistoryLink to="/pool">
+            <BackIcon />
+          </HistoryLink>
+          <ActiveText>
+            <p>Import Pool</p>
+            <p>Import an existing pool</p>
+          </ActiveText>
+        </TabsLeft>
         <Settings />
       </RowBetween>
     </Tabs>
@@ -100,16 +124,35 @@ export function AddRemoveTabs({ adding, creating }: { adding: boolean; creating:
 
   return (
     <Tabs>
-      <RowBetween style={{ padding: '1rem 1rem 0 1rem' }}>
-        <HistoryLink
-          to="/pool"
-          onClick={() => {
-            adding && dispatch(resetMintState())
-          }}
-        >
-          <StyledArrowLeft />
-        </HistoryLink>
-        <ActiveText>{creating ? 'Create a pair' : adding ? 'Add Liquidity' : 'Remove Liquidity'}</ActiveText>
+      <RowBetween style={{ padding: '24px 24px 0' }}>
+        <TabsLeft>
+          <HistoryLink
+            to="/pool"
+            onClick={() => {
+              adding && dispatch(resetMintState())
+            }}
+          >
+            <BackIcon />
+          </HistoryLink>
+          <ActiveText>
+            {creating ? (
+              <>
+                <p>Create a pair</p>
+                <p></p>
+              </>
+            ) : adding ? (
+              <>
+                <p>Add Liquidity</p>
+                <p>Add liquidity to receive LP tokens</p>
+              </>
+            ) : (
+              <>
+                <p>Remove Liquidity</p>
+                <p>Remove liquidity to receive tokens</p>
+              </>
+            )}
+          </ActiveText>
+        </TabsLeft>
         <Settings />
       </RowBetween>
     </Tabs>

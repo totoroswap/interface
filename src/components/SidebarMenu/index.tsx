@@ -96,8 +96,8 @@ export default function SidebarMenu() {
       <SidebarMenuView>
         <div className="menu-list">
           {sidebarMenuList.map((item, index) => (
-            <MenuItem key={index} to={item.route}>
-              <img src={item.icon} alt={item.name} />
+            <MenuItem key={index} to={item.route} onClick={() => (drawer ? toggle() : null)}>
+              <SvgPlus src={item.icon} size="24px" color={theme.text3} />
               <span>{item.name}</span>
             </MenuItem>
           ))}

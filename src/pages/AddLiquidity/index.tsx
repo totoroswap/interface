@@ -41,6 +41,7 @@ import { PoolPriceBar } from './PoolPriceBar'
 import { useIsTransactionUnsupported } from 'hooks/Trades'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
 import { ArrowDownBox } from '../Swap'
+import SwapBG from '../../components/SwapBG'
 
 const MColumnCenter = styled(ColumnCenter)`
   margin-bottom: 10px;
@@ -50,7 +51,8 @@ const PlusView = styled.div`
   padding: 2px 0;
 `
 const MLightCard = styled(LightCard)`
-  margin: 10px 0;
+  border: 0;
+  margin-top: 10px;
 `
 const MG = styled.div`
   margin: 10px 0;
@@ -226,7 +228,7 @@ export default function AddLiquidity({
   const modalHeader = () => {
     return noLiquidity ? (
       <AutoColumn gap="20px">
-        <LightCard mt="20px" borderRadius="20px">
+        <LightCard mt="20px" borderRadius="20px" style={{ border: 0 }}>
           <RowFlat>
             <Text fontSize="48px" fontWeight={500} lineHeight="42px" marginRight={10}>
               {currencies[Field.CURRENCY_A]?.symbol + '/' + currencies[Field.CURRENCY_B]?.symbol}
@@ -322,7 +324,7 @@ export default function AddLiquidity({
   const addIsUnsupported = useIsTransactionUnsupported(currencies?.CURRENCY_A, currencies?.CURRENCY_B)
 
   return (
-    <>
+    <SwapBG>
       <AppBody>
         <AddRemoveTabs creating={isCreate} adding={true} />
         <Wrapper>
@@ -342,37 +344,41 @@ export default function AddLiquidity({
             pendingText={pendingText}
             currencyToAdd={pair?.liquidityToken}
           />
-          <AutoColumn gap="20px">
-            {noLiquidity ||
-              (isCreate ? (
-                <MColumnCenter>
-                  <BlueCard>
-                    <AutoColumn gap="10px">
-                      <TYPE.link fontWeight={600} color={'#ffffff'}>
-                        You are the first liquidity provider.
-                      </TYPE.link>
-                      <TYPE.link fontWeight={400} color={'#ffffff'}>
-                        The ratio of tokens you add will set the price of this pool.
-                      </TYPE.link>
-                      <TYPE.link fontWeight={400} color={'#ffffff'}>
-                        Once you are happy with the rate click supply to review.
-                      </TYPE.link>
-                    </AutoColumn>
-                  </BlueCard>
-                </MColumnCenter>
-              ) : (
-                <MColumnCenter>
-                  <BlueCard>
-                    <AutoColumn gap="10px">
-                      <TYPE.link fontWeight={400} color={'#ffffff'}>
-                        <b>Tip:</b> When you add liquidity, you will receive pool tokens representing your position.
-                        These tokens automatically earn fees proportional to your share of the pool, and can be redeemed
-                        at any time.
-                      </TYPE.link>
-                    </AutoColumn>
-                  </BlueCard>
-                </MColumnCenter>
-              ))}
+          <AutoColumn gap="20px" style={{ paddingTop: '20px' }}>
+            {false && (
+              <>
+                {noLiquidity ||
+                  (isCreate ? (
+                    <MColumnCenter>
+                      <BlueCard>
+                        <AutoColumn gap="10px">
+                          <TYPE.link fontWeight={600} color={'#ffffff'}>
+                            You are the first liquidity provider.
+                          </TYPE.link>
+                          <TYPE.link fontWeight={400} color={'#ffffff'}>
+                            The ratio of tokens you add will set the price of this pool.
+                          </TYPE.link>
+                          <TYPE.link fontWeight={400} color={'#ffffff'}>
+                            Once you are happy with the rate click supply to review.
+                          </TYPE.link>
+                        </AutoColumn>
+                      </BlueCard>
+                    </MColumnCenter>
+                  ) : (
+                    <MColumnCenter>
+                      <BlueCard>
+                        <AutoColumn gap="10px">
+                          <TYPE.link fontWeight={400} color={'#ffffff'}>
+                            <b>Tip:</b> When you add liquidity, you will receive pool tokens representing your position.
+                            These tokens automatically earn fees proportional to your share of the pool, and can be
+                            redeemed at any time.
+                          </TYPE.link>
+                        </AutoColumn>
+                      </BlueCard>
+                    </MColumnCenter>
+                  ))}
+              </>
+            )}
             <CurrencyInputPanel
               value={formattedAmounts[Field.CURRENCY_A]}
               onUserInput={onFieldAInput}
@@ -416,7 +422,7 @@ export default function AddLiquidity({
                       {noLiquidity ? 'Initial prices' : 'Prices'} and pool share
                     </TYPE.subHeader>
                   </RowBetween>{' '}
-                  <LightCard padding="1rem" borderRadius={'20px'}>
+                  <LightCard padding="1rem 1rem 0 1rem" borderRadius={'20px'} style={{ border: 0 }}>
                     <PoolPriceBar
                       currencies={currencies}
                       poolTokenPercentage={poolTokenPercentage}
@@ -493,7 +499,7 @@ export default function AddLiquidity({
       </AppBody>
       {!addIsUnsupported ? (
         pair && !noLiquidity && pairState !== PairState.INVALID ? (
-          <AutoColumn style={{ minWidth: '20rem', width: '100%', maxWidth: '400px', marginTop: '1rem' }}>
+          <AutoColumn style={{ minWidth: '20rem', width: '100%', maxWidth: '416px', margin: '1rem auto auto auto' }}>
             <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
           </AutoColumn>
         ) : null
@@ -503,6 +509,6 @@ export default function AddLiquidity({
           currencies={[currencies.CURRENCY_A, currencies.CURRENCY_B]}
         />
       )}
-    </>
+    </SwapBG>
   )
 }
