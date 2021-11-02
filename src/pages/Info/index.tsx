@@ -8,20 +8,31 @@ import Grass4Img from '../../assets/images/info/grass4.png'
 import Grass5Img from '../../assets/images/info/grass5.png'
 import { ReactComponent as NextSvg } from '../../assets/images/info/next.svg'
 import BGImg from '../../assets/images/info/info_bg.png'
+import { useDarkModeManager } from '../../state/user/hooks'
 
 const NextIcon = styled(NextSvg)`
   width: 24px;
   height: 24px;
 `
-
+const InfoPageBG = styled.div<{ isDark: boolean }>`
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(${BGImg});
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: ${({ isDark }) => (isDark ? 0.1 : 1)};
+`
 const InfoPage = styled.div`
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   overflow-y: auto;
-  background-image: url(${BGImg});
-  background-size: cover;
   padding-top: 80px;
-
   .info-page {
     width: 100%;
     max-width: 1000px;
@@ -128,7 +139,7 @@ const InfoPage = styled.div`
 
         .line {
           display: flex;
-          color: ${({ theme }) => theme.text3};
+          color: #135658;
           margin: 4px 0;
           font-size: 20px;
           line-height: 30px;
@@ -235,10 +246,13 @@ const InfoPage = styled.div`
           ${FlexCenter};
           flex-direction: column;
           align-items: self-start;
+          background: #125659;
         }
 
         .more {
-          ${FlexCenterH};
+          ${FlexCenter};
+          flex-direction: column;
+          align-items: self-start;
           background: #32be39;
         }
       }
@@ -250,8 +264,10 @@ const InfoPage = styled.div`
     `}
 `
 export default function Info() {
+  const [isDark] = useDarkModeManager()
   return (
     <InfoPage>
+      <InfoPageBG isDark={isDark} />
       <div className="info-page">
         <div className="banner-box">
           <div className="banner">
