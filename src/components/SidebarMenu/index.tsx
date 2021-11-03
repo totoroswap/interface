@@ -41,7 +41,7 @@ const sidebarMenuList = [
   {
     icon: LiquidityIcon,
     name: 'Liquidity',
-    route: '/pool'
+    route: '/liquidity'
   },
   {
     icon: FarmIcon,
@@ -96,8 +96,8 @@ export default function SidebarMenu() {
       <SidebarMenuView>
         <div className="menu-list">
           {sidebarMenuList.map((item, index) => (
-            <MenuItem key={index} to={item.route}>
-              <img src={item.icon} alt={item.name} />
+            <MenuItem key={index} to={item.route} onClick={() => (drawer ? toggle() : null)}>
+              <SvgPlus src={item.icon} size="24px" color={theme.text3} />
               <span>{item.name}</span>
             </MenuItem>
           ))}
@@ -139,7 +139,7 @@ export default function SidebarMenu() {
               <div>
                 <div className="theme-switch" onClick={toggleDarkMode}>
                   <SvgPlus src={SunSvg} size="24px" color={!darkMode ? theme.primary1 : theme.disabled3} />
-                  <span>/</span>
+                  <span>|</span>
                   <SvgPlus src={MoonSvg} size="24px" color={darkMode ? theme.text1 : theme.disabled3} />
                 </div>
               </div>

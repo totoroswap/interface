@@ -81,7 +81,7 @@ export function colors(darkMode: boolean): Colors {
     red2: '#F82D3A',
     red3: '#D60000',
     green1: '#27AE60',
-    yellow1: '#FFE270',
+    yellow1: '#F5C02B',
     yellow2: '#F3841E',
     blue1: '#2172E5',
 
@@ -93,6 +93,7 @@ export function colors(darkMode: boolean): Colors {
     bg10: darkMode ? '#2C2F36' : '#EAF2FB',
     bg11: darkMode ? '#c7cccd' : '#F1F5F8',
     bg12: darkMode ? '#F6F2ED' : '#F6F2ED', //
+    bg13: darkMode ? '#121212' : '#f3f3f3', //
     text6: darkMode ? '#3285FF' : '#3285FF',
     text7: darkMode ? '#C3C5CB' : '#ffffff',
     gradual1: darkMode ? '#065163' : '#0ACFFE',
@@ -119,7 +120,8 @@ export function colors(darkMode: boolean): Colors {
     shadow1: darkMode ? '#89aaab' : '#89aaab', //
     shadow2: darkMode ? '#427779' : '#427779', //
     shadow3: darkMode ? '#C8C5C3' : '#C8C5C3', //
-    shadow4: darkMode ? '#404037' : '#eae8d6' //
+    shadow4: darkMode ? '#404037' : '#eae8d6', //
+    grayscale1: darkMode ? '0.3' : '0' //
   }
 }
 

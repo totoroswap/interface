@@ -43,7 +43,7 @@ import { FlexCenter, LinkStyledButton, TYPE } from '../../theme'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { computeTradePriceBreakdown, warningSeverity } from '../../utils/prices'
 import AppBody from '../AppBody'
-import { ClickableText } from '../Pool/styleds'
+import { ClickableText } from '../Liquidity/styleds'
 import Loader from '../../components/Loader'
 import { useIsTransactionUnsupported } from 'hooks/Trades'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
@@ -55,6 +55,7 @@ import { formatAmount, numToWei } from '../../utils/format'
 import Web3 from 'web3'
 import { TOTORO_TOKEN_INFO } from '../../constants'
 import { ReactComponent as ArrowDownSvg } from '../../assets/svg/arrow_down.svg'
+import SwapBG from '../../components/SwapBG'
 
 export const MarginT = styled.div`
   margin-top: 0.75rem;
@@ -373,16 +374,20 @@ export default function Swap({ history }: RouteComponentProps) {
     }
   }, [trade, formattedAmounts[Field.INPUT], blockNumber])
   return (
-    <>
+    <SwapBG>
       <TokenWarningModal
         isOpen={importTokensNotInDefault.length > 0 && !dismissTokenWarning}
         tokens={importTokensNotInDefault}
         onConfirm={handleConfirmTokenWarning}
         onDismiss={handleDismissTokenWarning}
       />
-      <SwapPoolTabs active={'swap'} />
+      <div style={{ textAlign: 'center' }}>
+        <div style={{ margin: 'auto', display: 'inline-block' }}>
+          <SwapPoolTabs active={'swap'} />
+        </div>
+      </div>
       <AppBody>
-        <SwapHeader />
+        <SwapHeader title="Exchange" desc="Trade tokens in an instant" />
         <Wrapper id="swap-page">
           <ConfirmSwapModal
             isOpen={showConfirm}
@@ -616,11 +621,12 @@ export default function Swap({ history }: RouteComponentProps) {
           </BottomGrouping>
         </Wrapper>
       </AppBody>
+
       {!swapIsUnsupported ? (
         <AdvancedSwapDetailsDropdown trade={trade} />
       ) : (
         <UnsupportedCurrencyFooter show={swapIsUnsupported} currencies={[currencies.INPUT, currencies.OUTPUT]} />
       )}
-    </>
+    </SwapBG>
   )
 }

@@ -11,6 +11,7 @@ export const SidebarMenuView = styled.div`
   background: ${({ theme }) => theme.bg1};
   .menu-list {
     flex: 1;
+    overflow-y: auto;
   }
 
   .menu-footer {
@@ -93,9 +94,7 @@ export const MenuItem = styled(NavLink)`
   background: ${({ theme }) => theme.bg1};
   color: ${({ theme }) => theme.text3};
   font-weight: 500;
-  img {
-    width: 24px;
-    height: 24px;
+  & > div {
     margin: 0 12px 0 16px;
   }
   &.active {

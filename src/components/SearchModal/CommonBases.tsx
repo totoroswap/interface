@@ -34,11 +34,10 @@ export default function CommonBases({
   selectedCurrency?: Currency | null
   onSelect: (currency: Currency) => void
 }) {
-  console.log('ETHER', ETHER)
   return (
     <AutoColumn gap="md">
       <AutoRow>
-        <Text fontWeight={500} fontSize={14}>
+        <Text fontWeight={500} fontSize={14} padding="10px 0">
           Common bases
         </Text>
         <QuestionHelper text="These tokens are commonly paired with other tokens." />

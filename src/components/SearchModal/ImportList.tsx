@@ -111,14 +111,14 @@ export function ImportList({ listURL, list, setModalView, onDismiss }: ImportPro
             </RowBetween>
           </Card>
           <Card style={{ backgroundColor: transparentize(0.8, theme.red1) }}>
-            <AutoColumn justify="center" style={{ textAlign: 'center', gap: '16px', marginBottom: '12px' }}>
+            <AutoColumn justify="center" style={{ textAlign: 'center', gap: '16px', margin: '0 0 12px 0' }}>
               <AlertTriangle stroke={theme.red1} size={32} />
               <TYPE.body fontWeight={500} fontSize={20} color={theme.red1}>
                 Import at your own risk{' '}
               </TYPE.body>
             </AutoColumn>
 
-            <AutoColumn style={{ textAlign: 'center', gap: '16px', marginBottom: '12px' }}>
+            <AutoColumn style={{ textAlign: 'center', gap: '16px', margin: '0 0 12px 0' }}>
               <TYPE.body fontWeight={500} color={theme.red1}>
                 By adding this list you are implicitly trusting that the data is correct. Anyone can create a list,
                 including creating fake versions of existing lists and lists that claim to represent projects that do

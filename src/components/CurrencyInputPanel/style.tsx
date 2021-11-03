@@ -79,3 +79,10 @@ export const StyledDropDown = styled(DropDown)<{ selected: boolean }>`
     stroke-width: 1.5px;
   }
 `
+export const StyledBalanceMax = styled.span`
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 2px;
+  color: ${({ theme }) => theme.yellow1};
+`

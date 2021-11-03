@@ -9,7 +9,7 @@ import { Input as NumericalInput } from '../NumericalInput'
 
 import { useActiveWeb3React } from '../../hooks'
 import { useTranslation } from 'react-i18next'
-import { CurrencyInputPanelView, InputRow, CurrencySelect, StyledDropDown, Aligner } from './style'
+import { CurrencyInputPanelView, InputRow, CurrencySelect, StyledDropDown, Aligner, StyledBalanceMax } from './style'
 
 const StyledTokenName = styled.span<{ active?: boolean }>`
   ${({ active }) => (active ? '  margin: 0 0.25rem 0 0.75rem;' : '  margin: 0 0.25rem 0 0.25rem;')}
@@ -70,13 +70,14 @@ export default function CurrencyInputPanel({
         <InputRow style={hideInput ? { padding: '0', borderRadius: '8px' } : {}} selected={!!currency && !!account}>
           <div className="input-title">
             <div className="input-title-l">{inputTitle}</div>
-            {account && currency && (
+            {account && currency ? (
               <div className="input-title-r">
                 Balance: {Number(maxAmount) > 0 ? Number(Number(maxAmount).toFixed(6)) * 1 : maxAmount}
               </div>
+            ) : (
+              '-'
             )}
           </div>
-          {/*{label !== 'To' && showMax && <StyledBalanceMax onClick={onMax}>(Max)</StyledBalanceMax>}*/}
           <div className="input-box">
             <div className="input-box-l">
               {!hideInput && (
@@ -92,6 +93,9 @@ export default function CurrencyInputPanel({
               )}
             </div>
             <div className="input-box-r">
+              {label !== 'To' && showMax && account && currency && (
+                <StyledBalanceMax onClick={onMax}>Max</StyledBalanceMax>
+              )}
               <CurrencySelect
                 selected={!!currency}
                 className="open-currency-select-button"

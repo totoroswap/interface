@@ -2,11 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import Settings from '../Settings'
 import { RowBetween } from '../Row'
-
+interface Props {
+  title: string
+  desc?: string
+}
 const StyledSwapHeader = styled.div`
   padding: 24px 24px 0 24px;
   width: 100%;
-  max-width: 420px;
+  max-width: 436px;
   color: ${({ theme }) => theme.text8};
 `
 const TitleText = styled.div`
@@ -25,13 +28,14 @@ const TitleMenu = styled.div`
   display: flex;
   align-items: center;
 `
-export default function SwapHeader() {
+
+export default function SwapHeader({ title, desc }: Props) {
   return (
     <StyledSwapHeader>
       <RowBetween>
         <div>
-          <TitleText>Exchange</TitleText>
-          <DescText>Trade tokens in an instant</DescText>
+          <TitleText>{title}</TitleText>
+          <DescText>{desc}</DescText>
         </div>
         <TitleMenu>
           <Settings />
