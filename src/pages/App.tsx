@@ -20,6 +20,7 @@ import PoolFinder from './PoolFinder'
 import RemoveLiquidity from './RemoveLiquidity'
 import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
 import Swap from './Swap'
+import Home from './Home'
 import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
 import Layout from '../components/Layout'
 
@@ -66,6 +67,7 @@ export default function App() {
             {false && <Polling />}
             <Web3ReactManager>
               <Switch>
+                <Route exact strict path="/home" component={Home} />
                 <Route exact strict path="/swap" component={Swap} />
                 <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
                 <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
