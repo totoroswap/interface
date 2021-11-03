@@ -344,11 +344,12 @@ const ReBase = styled(RebassButton)<{
   align-items: center;
   justify-content: center;
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+  color: ${({ theme }) => theme.text8};
+  text-decoration: none;
 `
 export const TButtonPrimary = styled(ReBase)`
   background: ${({ theme, disabled }) => (disabled ? theme.disabled4 : theme.primary1)};
   box-shadow: 0 4px 0 0 ${({ theme, disabled }) => (disabled ? theme.disabled5 : theme.shadow2)};
-
   &:hover {
     opacity: 0.95;
   }

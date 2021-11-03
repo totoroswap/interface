@@ -387,7 +387,7 @@ export default function Swap({ history }: RouteComponentProps) {
         </div>
       </div>
       <AppBody>
-        <SwapHeader />
+        <SwapHeader title="Exchange" desc="Trade tokens in an instant" />
         <Wrapper id="swap-page">
           <ConfirmSwapModal
             isOpen={showConfirm}
