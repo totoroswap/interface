@@ -43,7 +43,7 @@ import { FlexCenter, LinkStyledButton, TYPE } from '../../theme'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { computeTradePriceBreakdown, warningSeverity } from '../../utils/prices'
 import AppBody from '../AppBody'
-import { ClickableText } from '../Pool/styleds'
+import { ClickableText } from '../Liquidity/styleds'
 import Loader from '../../components/Loader'
 import { useIsTransactionUnsupported } from 'hooks/Trades'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
@@ -381,8 +381,11 @@ export default function Swap({ history }: RouteComponentProps) {
         onConfirm={handleConfirmTokenWarning}
         onDismiss={handleDismissTokenWarning}
       />
-
-      <SwapPoolTabs active={'swap'} />
+      <div style={{ textAlign: 'center' }}>
+        <div style={{ margin: 'auto', display: 'inline-block' }}>
+          <SwapPoolTabs active={'swap'} />
+        </div>
+      </div>
       <AppBody>
         <SwapHeader />
         <Wrapper id="swap-page">

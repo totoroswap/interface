@@ -17,7 +17,7 @@ import { useTokenBalance } from '../../state/wallet/hooks'
 import { StyledInternalLink } from '../../theme'
 import { currencyId } from '../../utils/currencyId'
 import AppBody from '../AppBody'
-import { Dots } from '../Pool/styleds'
+import { Dots } from '../Liquidity/styleds'
 import { BlueCard } from '../../components/Card'
 import { TYPE } from '../../theme'
 import styled, { ThemeContext } from 'styled-components'
@@ -161,7 +161,7 @@ export default function PoolFinder() {
               <Text textAlign="center" fontWeight={500}>
                 Pool Found!
               </Text>
-              <StyledInternalLink to={`/pool`}>
+              <StyledInternalLink to={`/liquidity`}>
                 <Text textAlign="center">Manage this pool.</Text>
               </StyledInternalLink>
             </ColumnCenter>

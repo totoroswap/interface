@@ -76,5 +76,6 @@
   "farms": "农场",
   "tradeBonus": "交易挖矿",
   "pools": "单币质押 ",
-  "dividends": "分红池 "
+  "dividends": "分红池 ",
+  "liquidity": "流动性"
 }

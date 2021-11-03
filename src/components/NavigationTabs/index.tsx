@@ -44,7 +44,7 @@ const ActiveText = styled.div`
   }
 `
 const SwapTabs = styled.div`
-  width: 240px;
+  min-width: 240px;
   margin: auto auto 40px auto;
   display: flex;
   box-shadow: 0px 4px 0px 0px ${({ theme }) => theme.shadow3};
@@ -85,15 +85,15 @@ const TabsLeft = styled.div`
   ${FlexCenterH};
 `
 
-export function SwapPoolTabs({ active }: { active: 'swap' | 'pool' }) {
+export function SwapPoolTabs({ active }: { active: 'swap' | 'liquidity' }) {
   const { t } = useTranslation()
   return (
     <SwapTabs>
       <StyledNavLink id={`swap-nav-link`} to={'/swap'} isActive={() => active === 'swap'}>
         {t('swap')}
       </StyledNavLink>
-      <StyledNavLink id={`pool-nav-link`} to={'/pool'} isActive={() => active === 'pool'}>
-        {t('pool')}
+      <StyledNavLink id={`pool-nav-link`} to={'/liquidity'} isActive={() => active === 'liquidity'}>
+        {t('liquidity')}
       </StyledNavLink>
     </SwapTabs>
   )
@@ -104,7 +104,7 @@ export function FindPoolTabs() {
     <Tabs>
       <RowBetween style={{ padding: '24px 24px 0' }}>
         <TabsLeft>
-          <HistoryLink to="/pool">
+          <HistoryLink to="/liquidity">
             <BackIcon />
           </HistoryLink>
           <ActiveText>
@@ -127,7 +127,7 @@ export function AddRemoveTabs({ adding, creating }: { adding: boolean; creating:
       <RowBetween style={{ padding: '24px 24px 0' }}>
         <TabsLeft>
           <HistoryLink
-            to="/pool"
+            to="/liquidity"
             onClick={() => {
               adding && dispatch(resetMintState())
             }}

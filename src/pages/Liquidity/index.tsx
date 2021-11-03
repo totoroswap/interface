@@ -82,7 +82,7 @@ const EmptyProposals = styled.div`
   align-items: center;
 `
 
-export default function Pool() {
+export default function Liquidity() {
   const theme = useContext(ThemeContext)
   const { account } = useActiveWeb3React()
 
@@ -132,7 +132,7 @@ export default function Pool() {
   return (
     <SwapBG>
       <PageWrapper>
-        <SwapPoolTabs active={'pool'} />
+        <SwapPoolTabs active={'liquidity'} />
         {false && (
           <VoteCard>
             <CardBGImage />

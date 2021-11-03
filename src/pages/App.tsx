@@ -15,7 +15,7 @@ import {
   RedirectToAddLiquidity
 } from './AddLiquidity/redirects'
 
-import Pool from './Pool'
+import Liquidity from './Liquidity'
 import Info from './Info'
 import PoolFinder from './PoolFinder'
 import RemoveLiquidity from './RemoveLiquidity'
@@ -50,7 +50,7 @@ export default function App() {
               <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
               <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
               <Route exact strict path="/find" component={PoolFinder} />
-              <Route exact strict path="/pool" component={Pool} />
+              <Route exact strict path="/liquidity" component={Liquidity} />
               <Route exact strict path="/info" component={Info} />
               <Route exact strict path="/create" component={RedirectToAddLiquidity} />
               <Route exact path="/add" component={AddLiquidity} />
